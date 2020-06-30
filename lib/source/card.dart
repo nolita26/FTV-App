@@ -21,7 +21,9 @@ class CourseCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(4),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => Details(course)));
+        },
         child: Container(
           decoration: BoxDecoration(
             boxShadow: [
