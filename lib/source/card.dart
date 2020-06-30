@@ -111,7 +111,7 @@ class CourseCard extends StatelessWidget {
                             width: 5,
                           ),
                           Text(
-                            '$price price',
+                            'Rs. $price',
                             style: TextStyle(
                               color: Colors.white,
                             ),
