@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'navigation_bloc.dart';
+import '../../bloc/navigation_bloc.dart';
 
 class SearchPage extends StatelessWidget with NavigationStates {
   categoryButton({image, title}) {

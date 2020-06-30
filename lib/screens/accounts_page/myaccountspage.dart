@@ -1,6 +1,6 @@
-import 'package:connectingwithfirebase/sidebar/settings.dart';
+import 'package:connectingwithfirebase/screens/settings/settings.dart';
 import 'package:flutter/material.dart';
-import 'navigation_bloc.dart';
+import '../../bloc/navigation_bloc.dart';
 
 class MyAccountsPage extends StatelessWidget with NavigationStates {
   @override

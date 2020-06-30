@@ -1,9 +1,9 @@
-import 'package:connectingwithfirebase/sidebar/discription_of_mainscreeen.dart';
-import 'package:connectingwithfirebase/sidebar/details_of_course.dart';
-import 'package:connectingwithfirebase/sidebar/sidebar_layout.dart';
+import 'package:connectingwithfirebase/model/description_of_mainscreeen.dart';
+import 'package:connectingwithfirebase/screens/course_details/course_details.dart';
+import 'package:connectingwithfirebase/screens/drawer/sidebar_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'navigation_bloc.dart';
+import '../../bloc/navigation_bloc.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       },
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (_) => Details_of_Course(plant: plants[index]),
+          Navigator.push(context, MaterialPageRoute(builder: (_) => DetailsOfCourse(plant: plants[index]),
             ),
           );
         },

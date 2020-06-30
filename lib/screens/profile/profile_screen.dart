@@ -1,7 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:connectingwithfirebase/nm_box.dart';
+import 'package:connectingwithfirebase/common/nm_box.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

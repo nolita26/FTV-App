@@ -1,11 +1,11 @@
 import 'dart:async';
+import 'package:connectingwithfirebase/screens/authenticate/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-import '../registration_screen.dart';
-import 'navigation_bloc.dart';
-import '../sidebar/menu_item.dart';
+import '../../bloc/navigation_bloc.dart';
+import '../../common/menu_item.dart';
 
 class SideBar extends StatefulWidget {
   @override
@@ -116,7 +116,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         onTap: (){
                           onIconPressed();
                           FirebaseAuth.instance.signOut().then((onValue){
-                            Navigator.push(context, MaterialPageRoute(builder: (_) => RegistrationScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => Register()));
                           });
                         },
                       ),

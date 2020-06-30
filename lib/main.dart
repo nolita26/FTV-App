@@ -1,6 +1,8 @@
-import 'package:connectingwithfirebase/sidebar/sidebar_layout.dart';
+import 'package:connectingwithfirebase/model/user.dart';
+import 'package:connectingwithfirebase/screens/wrapper/wrapper.dart';
+import 'package:connectingwithfirebase/services/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:connectingwithfirebase/registration_screen.dart';
+import 'package:provider/provider.dart';
 void main(){
   runApp(MyApp());
 }
@@ -8,12 +10,15 @@ void main(){
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: RegistrationScreen(),
-      theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          primaryColor: Colors.white
+    return StreamProvider<User>.value(
+      value: AuthService().user,
+          child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Wrapper(),
+        theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            primaryColor: Colors.white
+        ),
       ),
     );
   }

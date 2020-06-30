@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:connectingwithfirebase/pages/profile_screen.dart';
+import 'package:connectingwithfirebase/screens/profile/profile_screen.dart';
 
 class Settings extends StatelessWidget {
   @override
