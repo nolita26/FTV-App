@@ -1,19 +1,23 @@
-import 'package:connectingwithfirebase/sidebar/homepage.dart';
-import 'package:connectingwithfirebase/login_screen.dart';
+import 'package:connectingwithfirebase/screens/authenticate/register.dart';
+import 'package:connectingwithfirebase/services/auth.dart';
+import 'package:connectingwithfirebase/screens/homepage/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
-  _RegistrationScreenState createState() => _RegistrationScreenState();
+  _LoginState createState() => _LoginState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _LoginState extends State<Login> {
 
   var _formkey = GlobalKey<FormState>();
   String _email, _password;
   bool isLoading = false;
+
+    AuthService _authService = AuthService();
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 900,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('images/model6.jpg'),
+                        image: AssetImage('images/model7.jpg'),
                         fit: BoxFit.cover,
                     ),
                 ),
@@ -39,6 +43,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       ],
                       ),
                   ),
+                  alignment: Alignment.center,
                   child: Form(
                       key: _formkey,
                       child: Padding(
@@ -47,7 +52,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            SizedBox(height: 40),
+                            SizedBox(height: 20),
                             Container(
                               height: 90,
                               decoration: BoxDecoration(
@@ -68,12 +73,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                              color: Colors.white10,
+                                              color: Colors.grey,
                                           ),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                              color: Colors.white10,
+                                              color: Colors.grey,
                                           ),
                                       ),
                                       hintText: "Username",
@@ -104,12 +109,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                              color: Colors.white10,
+                                              color: Colors.grey,
                                           ),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                              color: Colors.white10,
+                                              color: Colors.grey,
                                           ),
                                       ),
                                       hintText: "Password",
@@ -129,15 +134,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               ),
                               child: Center(
                                 child: FlatButton(
-                                  color: Colors.transparent,
                                   onPressed: () {
-                                    signup();
+                                    login();
                                   },
-                                  child: Text(
-                                    "Register",
-                                    style: TextStyle(
-                                      fontSize: 12.0,
-                                    ),
+                                  child: Center(
+                                    child: Text("Login"),
                                   ),
                                   textColor: Colors.white,
                                 ),
@@ -147,17 +148,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             Container(
                               child: GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
-                                    },
+                                    Navigator.push(context, MaterialPageRoute(builder: (_) => Register()));
+                                  },
                                 child: Center(
                                     child: Text(
-                                      "Login Here",
+                                      "Register Here",
                                       style: TextStyle(
                                           color:Colors.white,
                                       ),
                                     ),
                                 ),
-                              ),
+                            ),
                             ),
                           ],
                         ),
@@ -167,17 +168,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ));
   }
 
-  void signup() {
+  void login() {
     if (_formkey.currentState.validate()) {
       setState(() {
         isLoading = true;
       });
-      FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password).then((user) {
+      _authService.signInWithEmailAndPassword(_email, _password).then((user) {
         // sign up
         setState(() {
           isLoading = false;
         });
-        Fluttertoast.showToast(msg: "Register Success");
+        Fluttertoast.showToast(msg: "Login Success");
         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => HomePage()), (Route<dynamic> route) => false);
       }).catchError((onError) {
         setState(() {

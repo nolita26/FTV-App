@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:connectingwithfirebase/sidebar/searchpage.dart';
-import 'myaccountspage.dart';
-import 'myorderspage.dart';
-import 'homepage.dart';
+import 'package:connectingwithfirebase/screens/searchpage/searchpage.dart';
+import '../screens/accounts_page/myaccountspage.dart';
+import '../screens/orders_page/myorderspage.dart';
+import '../screens/homepage/homepage.dart';
 
 enum NavigationEvents {
   HomePageClickedEvent,

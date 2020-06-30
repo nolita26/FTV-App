@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'navigation_bloc.dart';
+import '../../bloc/navigation_bloc.dart';
 
 class MyOrdersPage extends StatelessWidget with NavigationStates {
   @override

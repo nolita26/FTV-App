@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
-import 'package:connectingwithfirebase/item.dart';
+import 'package:connectingwithfirebase/model/item.dart';
 import 'package:video_player/video_player.dart';
 
 class PlayVideo extends StatefulWidget{
