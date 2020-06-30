@@ -31,42 +31,41 @@ class _HomeState extends State<Home> {
                   },
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 30),
-                  padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
                   height: 60,
+                  width: 270,
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(40),
                   ),
-                  child: Row(
-                    children: <Widget>[
-                      Text(
-                        "Search for anything",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Nunito',
-                          color: Color(0xFFA0A5BD),
+                  child: Card(
+                    elevation: 0,
+                    color: Colors.grey[200],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: ListTile(
+                      title: TextFormField(
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          hintText: 'Search for Anything',
+                          filled: true,
+                          fillColor: Colors.grey[200]
                         ),
                       ),
-                      IconButton(
-                          icon: Icon(
-                            Icons.search,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                          onPressed: (){}
+                      trailing: IconButton(
+                        icon: Icon(Icons.search),
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 25),
             Text(
               "Find some amazing courses you may want to learn",
               style: TextStyle(
                 fontFamily: 'Nunito',
-                fontSize: 23,
+                fontSize: 25,
               ),
             ),
             SizedBox(height: 20),
