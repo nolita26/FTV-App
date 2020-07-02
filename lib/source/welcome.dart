@@ -10,7 +10,7 @@ class Welcome extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Image.asset(
-            'assets/images/pesto_pasta.jpg',
+            'images/pesto_pasta.jpg',
             fit: BoxFit.fill,
             height: double.infinity,
             width: double.infinity,

@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-
-class Course{
-  String course;
-  String image;
-  int price;
-  Course({this.course, this.image, this.price});
-}
+import 'package:ftvapp/source/course.dart';
 
 class Details extends StatelessWidget {
   final Course course;
@@ -48,9 +42,10 @@ class Details extends StatelessWidget {
 //                      width: 5,
 //                    ),
                     Text(
-                      '${course.price} price',
+                      'Fashion & Beauty',
                       style: TextStyle(
                         color: Colors.grey,
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -67,10 +62,11 @@ class Details extends StatelessWidget {
                           fontSize: 22,
                           fontWeight: FontWeight.w700,
                           color: Colors.black,
+                          height: 2,
                         ),
                       ),
                       TextSpan(
-                        text: 'Best holiday destination with wonderful beaches, monuments and other tourist attractions.',
+                        text: '${course.description}',
                       ),
                     ],
                       style: TextStyle(
@@ -85,14 +81,18 @@ class Details extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  height: 80,
+                  height: 70,
+                  width: 350,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                    color: Colors.blue[700],
+                    color: Colors.pink[200],
+                    borderRadius: BorderRadius.circular(20),
                   ),
+                  child: Card(
+                    elevation: 0,
+                    color: Colors.pink[200],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -108,7 +108,7 @@ class Details extends StatelessWidget {
                                 ),
                               ),
                               TextSpan(
-                                text: '${course.price} \n',
+                                text: 'Rs. ${course.price}',
                                 style: TextStyle(
                                   fontSize: 26,
                                   fontWeight: FontWeight.bold,
@@ -130,7 +130,7 @@ class Details extends StatelessWidget {
                             child: Text(
                               'Enroll',
                               style: TextStyle(
-                                color: Colors.blue[700],
+                                color: Colors.grey[500],
                                 fontSize: 20,
                               ),
                             ),
@@ -141,7 +141,7 @@ class Details extends StatelessWidget {
                   ),
                 ),
               )
-            ],
+              ) ],
           ),
           Positioned(
             top: 20,
