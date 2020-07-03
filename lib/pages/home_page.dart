@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
+import 'package:ftvapp/pages/bookmark.dart';
+import 'package:ftvapp/pages/login.dart';
 import 'package:ftvapp/pages/recomended_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
@@ -487,32 +489,14 @@ class HomePage extends StatelessWidget {
         ));
   }
 
-  BottomNavigationBarItem _bottomIcons(IconData icon) {
-    return BottomNavigationBarItem(icon: Icon(icon), title: Text(""));
-  }
+
 
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedItemColor: LightColor.purple,
-          unselectedItemColor: Colors.grey.shade300,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: 0,
-          items: [
-            _bottomIcons(Icons.home),
-            _bottomIcons(Icons.star_border),
-            _bottomIcons(Icons.book),
-            _bottomIcons(Icons.person),
-          ],
-          onTap: (index) {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => RecomendedPage()));
-          },
-        ),
+
+
         body: SingleChildScrollView(
             child: Container(
           child: Column(

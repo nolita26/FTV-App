@@ -5,8 +5,14 @@ import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 import 'package:ftvapp/theme/theme.dart';
 
-class RecomendedPage extends StatelessWidget {
-  RecomendedPage({Key key}) : super(key: key);
+class RecomendedPage extends StatefulWidget {
+  @override
+  _RecomendedPageState createState() => _RecomendedPageState();
+}
+
+class _RecomendedPageState extends State<RecomendedPage> {
+
+//  RecomendedPage({Key key}) : super(key: key);
 
   double width;
 
@@ -357,35 +363,35 @@ class RecomendedPage extends StatelessWidget {
         ));
   }
 
-  BottomNavigationBarItem _bottomIcons(IconData icon) {
-    return BottomNavigationBarItem(
-        //  backgroundColor: Colors.blue,
-        icon: Icon(icon),
-        title: Text(""));
-  }
+//  BottomNavigationBarItem _bottomIcons(IconData icon) {
+//    return BottomNavigationBarItem(
+//        //  backgroundColor: Colors.blue,
+//        icon: Icon(icon),
+//        title: Text(""));
+//  }
 
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedItemColor: LightColor.purple,
-          unselectedItemColor: Colors.grey.shade300,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: 1,
-          items: [
-            _bottomIcons(Icons.home),
-            _bottomIcons(Icons.star_border),
-            _bottomIcons(Icons.book),
-            _bottomIcons(Icons.person),
-          ],
-          onTap: (index) {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => HomePage()));
-          },
-        ),
+//        bottomNavigationBar: BottomNavigationBar(
+//          showSelectedLabels: false,
+//          showUnselectedLabels: false,
+//          selectedItemColor: LightColor.purple,
+//          unselectedItemColor: Colors.grey.shade300,
+//          type: BottomNavigationBarType.fixed,
+//          currentIndex: 1,
+//          items: [
+//            _bottomIcons(Icons.home),
+//            _bottomIcons(Icons.star_border),
+//            _bottomIcons(Icons.book),
+//            _bottomIcons(Icons.person),
+//          ],
+//          onTap: (index) {
+//            Navigator.pushReplacement(
+//                context, MaterialPageRoute(builder: (context) => HomePage()));
+//          },
+//        ),
         body: SingleChildScrollView(
             child: Container(
           child: Column(

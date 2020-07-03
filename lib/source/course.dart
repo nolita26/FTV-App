@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:ftvapp/helper/quad_clipper.dart';
-import 'package:ftvapp/pages/home_page.dart';
-import 'package:ftvapp/pages/recomended_page.dart';
-import 'package:ftvapp/theme/color/light_color.dart';
-
+//import 'package:flutter/material.dart';
+//import 'package:flutter/cupertino.dart';
+//import 'package:ftvapp/helper/quad_clipper.dart';
+//import 'package:ftvapp/pages/home_page.dart';
+//import 'package:ftvapp/pages/recomended_page.dart';
+//import 'package:ftvapp/theme/color/light_color.dart';
+//
 
    //////Navigate to the home_page.dart module
 
