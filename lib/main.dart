@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:ftvapp/intropages/intro_layout.dart';
 import 'package:splashscreen/splashscreen.dart';
+import 'package:ftvapp/intropages/intro_layout.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
-  home: new MyApp(),
+  home: Splash(),
 ));
 
-class MyApp extends StatefulWidget{
+class Splash extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _SplashState createState() => _SplashState();
 }
 
-class _MyAppState extends State<MyApp>
-{
+class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 8,
+      seconds: 5,
       backgroundColor: Colors.white,
-      image:Image.asset('images/logo.png'),
-      loaderColor: Colors.blue,
-      photoSize: 150.0,
-      navigateAfterSeconds:IntroLayout(),
+      image: Image.asset('images/logo.png'),
+      loaderColor: Colors.black,
+      photoSize: 180.0,
+      navigateAfterSeconds: IntroLayout(),
+//      TODO: Add Wrapper , Once Firebase Authentication is sorted
     );
   }
 }
