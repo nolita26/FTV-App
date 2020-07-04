@@ -1,25 +1,28 @@
-import 'package:connectingwithfirebase/model/user.dart';
-import 'package:connectingwithfirebase/screens/wrapper/wrapper.dart';
-import 'package:connectingwithfirebase/services/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-void main(){
-  runApp(MyApp());
+import 'package:splashscreen/splashscreen.dart';
+import 'package:ftvapp/intropages/intro_layout.dart';
+
+void main() => runApp(MaterialApp(
+  debugShowCheckedModeBanner: false,
+  home: Splash(),
+));
+
+class Splash extends StatefulWidget {
+  @override
+  _SplashState createState() => _SplashState();
 }
 
-class MyApp extends StatelessWidget {
+class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<User>.value(
-      value: AuthService().user,
-          child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Wrapper(),
-        theme: ThemeData(
-            scaffoldBackgroundColor: Colors.white,
-            primaryColor: Colors.white
-        ),
-      ),
+    return SplashScreen(
+      seconds: 5,
+      backgroundColor: Colors.white,
+      image: Image.asset('images/logo.png'),
+      loaderColor: Colors.black,
+      photoSize: 180.0,
+      navigateAfterSeconds: IntroLayout(),
+//      TODO: Add Wrapper , Once Firebase Authentication is sorted
     );
   }
 }
