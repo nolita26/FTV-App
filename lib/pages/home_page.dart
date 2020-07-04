@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
-import 'package:ftvapp/pages/bookmark.dart';
-import 'package:ftvapp/pages/login.dart';
-import 'package:ftvapp/pages/recomended_page.dart';
+import 'package:ftvapp/pages/detailscreen.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +14,7 @@ class HomePage extends StatelessWidget {
       borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
       child: Container(
-          height: 200,
+          height: 150,
           width: width,
           decoration: BoxDecoration(
             color: LightColor.purple,
@@ -39,50 +37,70 @@ class HomePage extends StatelessWidget {
                   child: _circularContainer(width * .7, Colors.transparent,
                       borderColor: Colors.white38)),
               Positioned(
-                  top: 40,
+                  top: 30,
                   left: 0,
                   child: Container(
                       width: width,
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Icon(
-                            Icons.keyboard_arrow_left,
-                            color: Colors.white,
-                            size: 40,
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                          Icon(
+//                            Icons.keyboard_arrow_left,
+//                            color: Colors.white,
+//                            size: 40,
+//                          ),
+                          SizedBox(height: 40),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
+//                              Text(
+//                                "Search courses",
+//                                style: TextStyle(
+//                                    color: Colors.white,
+//                                    fontWeight: FontWeight.w500),
+//                              ),
                               Text(
-                                "Search courses",
+                                "Learn and Explore!",
                                 style: TextStyle(
                                     color: Colors.white,
+                                    fontSize: 30,
                                     fontWeight: FontWeight.w500),
                               ),
-                              Icon(
-                                Icons.search,
-                                color: Colors.white,
-                                size: 30,
-                              )
+                              SizedBox(height: 5),
+                              Text(
+                                "Find new courses you may want to learn",
+                                style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500),
+                              ),
+//                              SizedBox(width: 40),
+//                              Icon(
+//                                Icons.search,
+//                                color: Colors.white,
+//                                size: 30,
+//                              )
                             ],
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Type Something...",
-                            style: TextStyle(
-                                color: Colors.white54,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w500),
-                          )
+//                          Text(
+//                            "Type Something...",
+//                            style: TextStyle(
+//                                color: Colors.white54,
+//                                fontSize: 30,
+//                                fontWeight: FontWeight.w500),
+//                          ),
                         ],
-                      )))
+                      ),
+                  ),
+              ),
             ],
-          )),
+          ),
+      ),
     );
   }
+
 
   Widget _circularContainer(double height, Color color,
       {Color borderColor = Colors.transparent, double borderWidth = 2}) {
@@ -96,6 +114,7 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
 
   Widget _categoryRow(
     String title,
@@ -111,7 +130,7 @@ class HomePage extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                color: LightColor.titleTextColor, fontWeight: FontWeight.bold),
+                color: LightColor.titleTextColor, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           _chip("See all", primary)
         ],
@@ -119,7 +138,56 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _featuredRowA() {
+
+  Widget _categoryList() {
+    return Container(
+      // margin: EdgeInsets.symmetric(horizontal: 20),
+      height: 68,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+//          Padding(
+//            padding: EdgeInsets.symmetric(horizontal: 20),
+//            child:
+//            Text(
+//              title,
+//              style: TextStyle(
+//                  color: LightColor.extraDarkPurple,
+//                  fontWeight: FontWeight.bold),
+//            ),
+//          ),
+//          SizedBox(
+//            height: 10,
+//          ),
+          Container(
+              width: width,
+              height: 30,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  SizedBox(width: 20),
+                  _chip("Beauty", LightColor.yellow, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nutrionist", LightColor.seeBlue, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Fashion", LightColor.orange, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Ayurveda", LightColor.lightBlue, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Therapy", LightColor.yellow, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nail", LightColor.seeBlue, height: 5),
+                ],
+              )),
+          SizedBox(height: 10)
+        ],
+      ),
+    );
+  }
+
+
+  Widget _featuredRowA(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(
@@ -127,49 +195,74 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            _card(
-                primary: LightColor.orange,
-                backWidget:
-                    _decorationContainerA(LightColor.lightOrange, 50, -30),
-                chipColor: LightColor.orange,
-                chipText1: "Find the right degree for you",
-                chipText2: "8 Cources",
-                isPrimaryCard: true,
-                imgPath:
-                    "https://jshopping.in/images/detailed/591/ibboll-Fashion-Mens-Optical-Glasses-Frames-Classic-Square-Wrap-Frame-Luxury-Brand-Men-Clear-Eyeglasses-Frame.jpg"),
-            _card(
-                primary: Colors.white,
-                chipColor: LightColor.seeBlue,
-                backWidget: _decorationContainerB(Colors.white, 90, -40),
-                chipText1: "Become a data scientist",
-                chipText2: "8 Cources",
-                imgPath:
-                    "https://hips.hearstapps.com/esquireuk.cdnds.net/16/39/980x980/square-1475143834-david-gandy.jpg?resize=480:*"),
-            _card(
-                primary: Colors.white,
-                chipColor: LightColor.lightOrange,
-                backWidget: _decorationContainerC(Colors.white, 50, -30),
-                chipText1: "Become a digital marketer",
-                chipText2: "8 Cources",
-                imgPath:
-                    "https://www.visafranchise.com/wp-content/uploads/2019/05/patrick-findaro-visa-franchise-square.jpg"),
-            _card(
-                primary: Colors.white,
-                chipColor: LightColor.seeBlue,
-                backWidget: _decorationContainerD(LightColor.seeBlue, -50, 30,
-                    secondary: LightColor.lightseeBlue,
-                    secondaryAccent: LightColor.darkseeBlue),
-                chipText1: "Become a machine learner",
-                chipText2: "8 Cources",
-                imgPath:
-                    "https://d1mo3tzxttab3n.cloudfront.net/static/img/shop/560x580/vint0080.jpg"),
-          ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
+                  primary: LightColor.orange,
+                  backWidget:
+                  _decorationContainerA(LightColor.lightOrange, 50, -30),
+                  chipColor: LightColor.orange,
+                  chipText1: "Find the right degree for you",
+                  chipText2: "8 Cources",
+                  isPrimaryCard: true,
+                  imgPath:
+                  "https://jshopping.in/images/detailed/591/ibboll-Fashion-Mens-Optical-Glasses-Frames-Classic-Square-Wrap-Frame-Luxury-Brand-Men-Clear-Eyeglasses-Frame.jpg",
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
+                  primary: Colors.white,
+                  chipColor: LightColor.seeBlue,
+                  backWidget: _decorationContainerB(Colors.white, 90, -40),
+                  chipText1: "Become a data scientist",
+                  chipText2: "8 Cources",
+                  imgPath:
+                  "https://hips.hearstapps.com/esquireuk.cdnds.net/16/39/980x980/square-1475143834-david-gandy.jpg?resize=480:*",
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
+                  primary: Colors.white,
+                  chipColor: LightColor.lightOrange,
+                  backWidget: _decorationContainerC(Colors.white, 50, -30),
+                  chipText1: "Become a digital marketer",
+                  chipText2: "8 Cources",
+                  imgPath:
+                  "https://www.visafranchise.com/wp-content/uploads/2019/05/patrick-findaro-visa-franchise-square.jpg",
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
+                  primary: Colors.white,
+                  chipColor: LightColor.seeBlue,
+                  backWidget: _decorationContainerD(LightColor.seeBlue, -50, 30,
+                      secondary: LightColor.lightseeBlue,
+                      secondaryAccent: LightColor.darkseeBlue),
+                  chipText1: "Become a machine learner",
+                  chipText2: "8 Cources",
+                  imgPath:
+                  "https://d1mo3tzxttab3n.cloudfront.net/static/img/shop/560x580/vint0080.jpg",
+              ),
+            ),
+            ],
         ),
       ),
     );
   }
 
-  Widget _featuredRowB() {
+
+  Widget _featuredRowB(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(
@@ -177,7 +270,11 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            _card(
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
                 primary: LightColor.seeBlue,
                 chipColor: LightColor.seeBlue,
                 backWidget: _decorationContainerD(
@@ -188,30 +285,48 @@ class HomePage extends StatelessWidget {
                 chipText2: "8 Cources",
                 isPrimaryCard: true,
                 imgPath:
-                    "https://www.reiss.com/media/product/946/218/silk-paisley-printed-pocket-square-mens-morocco-in-pink-red-20.jpg?format=jpeg&auto=webp&quality=85&width=1200&height=1200&fit=bounds"),
-            _card(
-                primary: Colors.white,
-                chipColor: LightColor.lightpurple,
-                backWidget: _decorationContainerE(
-                  LightColor.lightpurple,
-                  90,
-                  -40,
-                  secondary: LightColor.lightseeBlue,
-                ),
-                chipText1: "Bussiness foundation",
-                chipText2: "8 Cources",
-                imgPath:
-                    "https://i.dailymail.co.uk/i/pix/2016/08/05/19/36E9139400000578-3725856-image-a-58_1470422921868.jpg"),
-            _card(
-                primary: Colors.white,
-                chipColor: LightColor.lightOrange,
-                backWidget: _decorationContainerF(
-                    LightColor.lightOrange, LightColor.orange, 50, -30),
-                chipText1: "Excel skill for business",
-                chipText2: "8 Cources",
-                imgPath:
-                    "https://www.reiss.com/media/product/945/066/03-2.jpg?format=jpeg&auto=webp&quality=85&width=632&height=725&fit=bounds"),
-            _card(
+                "https://www.reiss.com/media/product/946/218/silk-paisley-printed-pocket-square-mens-morocco-in-pink-red-20.jpg?format=jpeg&auto=webp&quality=85&width=1200&height=1200&fit=bounds",
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
+                  primary: Colors.white,
+                  chipColor: LightColor.lightpurple,
+                  backWidget: _decorationContainerE(
+                    LightColor.lightpurple,
+                    90,
+                    -40,
+                    secondary: LightColor.lightseeBlue,
+                  ),
+                  chipText1: "Bussiness foundation",
+                  chipText2: "8 Cources",
+                  imgPath:
+                  "https://i.dailymail.co.uk/i/pix/2016/08/05/19/36E9139400000578-3725856-image-a-58_1470422921868.jpg",
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
+                  primary: Colors.white,
+                  chipColor: LightColor.lightOrange,
+                  backWidget: _decorationContainerF(
+                      LightColor.lightOrange, LightColor.orange, 50, -30),
+                  chipText1: "Excel skill for business",
+                  chipText2: "8 Cources",
+                  imgPath:
+                  "https://www.reiss.com/media/product/945/066/03-2.jpg?format=jpeg&auto=webp&quality=85&width=632&height=725&fit=bounds",
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _card(
                 primary: Colors.white,
                 chipColor: LightColor.seeBlue,
                 backWidget: _decorationContainerA(
@@ -222,12 +337,15 @@ class HomePage extends StatelessWidget {
                 chipText1: "Beacame a data analyst",
                 chipText2: "8 Cources",
                 imgPath:
-                    "https://img.alicdn.com/imgextra/i4/52031722/O1CN0165X68s1OaiaYCEX6U_!!52031722.jpg"),
+                "https://img.alicdn.com/imgextra/i4/52031722/O1CN0165X68s1OaiaYCEX6U_!!52031722.jpg",
+              ),
+            )
           ],
         ),
       ),
     );
   }
+
 
   Widget _card(
       {Color primary = Colors.redAccent,
@@ -269,12 +387,14 @@ class HomePage extends StatelessWidget {
                   child: _cardInfo(chipText1, chipText2,
                       LightColor.titleTextColor, chipColor,
                       isPrimaryCard: isPrimaryCard),
-                )
+                ),
               ],
             ),
           ),
-        ));
+        ),
+    );
   }
+
 
   Widget _cardInfo(String title, String courses, Color textColor, Color primary,
       {bool isPrimaryCard = false}) {
@@ -302,6 +422,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+
   Widget _chip(String text, Color textColor,
       {double height = 0, bool isPrimaryCard = false}) {
     return Container(
@@ -314,10 +435,11 @@ class HomePage extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-            color: isPrimaryCard ? Colors.white : textColor, fontSize: 12),
+            color: isPrimaryCard ? Colors.white : textColor, fontSize: 16),
       ),
     );
   }
+
 
   Widget _decorationContainerA(Color primary, double top, double left) {
     return Stack(
@@ -341,6 +463,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+
   Widget _decorationContainerB(Color primary, double top, double left) {
     return Stack(
       children: <Widget>[
@@ -363,6 +486,7 @@ class HomePage extends StatelessWidget {
       ],
     );
   }
+
 
   Widget _decorationContainerC(Color primary, double top, double left) {
     return Stack(
@@ -390,6 +514,7 @@ class HomePage extends StatelessWidget {
       ],
     );
   }
+
 
   Widget _decorationContainerD(Color primary, double top, double left,
       {Color secondary, Color secondaryAccent}) {
@@ -423,6 +548,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+
   Widget _decorationContainerE(Color primary, double top, double left,
       {Color secondary}) {
     return Stack(
@@ -452,6 +578,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+
   Widget _decorationContainerF(
       Color primary, Color secondary, double top, double left) {
     return Stack(
@@ -478,6 +605,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+
   Positioned _smallContainer(Color primary, double top, double left,
       {double radius = 10}) {
     return Positioned(
@@ -490,27 +618,27 @@ class HomePage extends StatelessWidget {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-
-
         body: SingleChildScrollView(
             child: Container(
-          child: Column(
-            children: <Widget>[
-              _header(context),
-              SizedBox(height: 20),
-              _categoryRow("Featured", LightColor.orange, LightColor.orange),
-              _featuredRowA(),
-              SizedBox(height: 0),
-              _categoryRow(
-                  "Featured", LightColor.purple, LightColor.darkpurple),
-              _featuredRowB()
-            ],
-          ),
+              child: Column(
+                children: <Widget>[
+                  _header(context),
+                  SizedBox(height: 20),
+                  _categoryRow("Categories", LightColor.purple, LightColor.darkpurple),
+                  SizedBox(height: 20),
+                  _categoryList(),
+                  SizedBox(height: 0),
+                  _categoryRow("Featured", LightColor.orange, LightColor.orange),
+                  _featuredRowA(context),
+                  SizedBox(height: 0),
+                  _categoryRow("Top Courses on BLABLA", LightColor.purple, LightColor.darkpurple),
+                  _featuredRowB(context),
+                ],
+              ),
         )));
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ftvapp/pages/bookmark.dart';
+import 'package:ftvapp/pages/wishlist.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/login.dart';
 import 'package:ftvapp/pages/recomended_page.dart';
+import 'package:ftvapp/pages/search.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
 class Dashboard extends StatefulWidget {
@@ -12,11 +13,11 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
 
-
   int pageIndex = 0;
   final HomePage _homePage = HomePage();
-  final RecomendedPage _recomendedPage = RecomendedPage();
-  final Bookmark _bookmark = Bookmark();
+  final Search _search = Search();
+  final RecommendedPage _recommendedPage = RecommendedPage();
+  final Wishlist _wishlist = Wishlist();
   final Login _login = Login();
 
   Widget _showPage = new HomePage();
@@ -27,12 +28,15 @@ class _DashboardState extends State<Dashboard> {
         return _homePage;
         break;
       case 1:
-        return _recomendedPage;
+        return _search;
         break;
       case 2:
-        return _bookmark;
+        return _recommendedPage;
         break;
       case 3:
+        return _wishlist;
+        break;
+      case 4:
         return _login;
         break;
       default:
@@ -52,8 +56,8 @@ class _DashboardState extends State<Dashboard> {
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          selectedItemColor: LightColor.purple,
-          unselectedItemColor: Colors.grey.shade300,
+          selectedItemColor: LightColor.,
+          unselectedItemColor: Colors.grey.shade500,
           type: BottomNavigationBarType.fixed,
           currentIndex: 0,
           items: [
@@ -62,16 +66,20 @@ class _DashboardState extends State<Dashboard> {
               title: Text('Home'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.star),
-              title: Text('Home'),
+              icon: Icon(Icons.search),
+              title: Text('Search'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark),
-              title: Text('Home'),
+              icon: Icon(Icons.star),
+              title: Text('Recommended'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite_border),
+              title: Text('Wishlist'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              title: Text('Home'),
+              title: Text('SignIn'),
             )
           ],
           onTap: (int tappedIndex) {

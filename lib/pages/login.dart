@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ftvapp/pages/dashboard.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/register.dart';
 import 'package:ftvapp/services/auth.dart';
@@ -168,7 +169,7 @@ class _LoginState extends State<Login> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomePage(),
+                                  builder: (context) => Dashboard(),
                                   fullscreenDialog: true));
                         },
                         child: Align(

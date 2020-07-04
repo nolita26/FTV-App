@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/helper/courseModel.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
-import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 import 'package:ftvapp/theme/theme.dart';
 
-class RecomendedPage extends StatefulWidget {
+class RecommendedPage extends StatefulWidget {
   @override
-  _RecomendedPageState createState() => _RecomendedPageState();
+  _RecommendedPageState createState() => _RecommendedPageState();
 }
 
-class _RecomendedPageState extends State<RecomendedPage> {
+class _RecommendedPageState extends State<RecommendedPage> {
 
-//  RecomendedPage({Key key}) : super(key: key);
+//  RecommendedPage({Key key}) : super(key: key);
 
   double width;
 
@@ -52,11 +51,11 @@ class _RecomendedPageState extends State<RecomendedPage> {
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Stack(
                         children: <Widget>[
-                          Icon(
-                            Icons.keyboard_arrow_left,
-                            color: Colors.white,
-                            size: 40,
-                          ),
+//                          Icon(
+//                            Icons.keyboard_arrow_left,
+//                            color: Colors.white,
+//                            size: 40,
+//                          ),
                           Align(
                               alignment: Alignment.center,
                               child: Text(
@@ -86,47 +85,47 @@ class _RecomendedPageState extends State<RecomendedPage> {
     );
   }
 
-  Widget _categoryRow(String title) {
-    return Container(
-      // margin: EdgeInsets.symmetric(horizontal: 20),
-      height: 68,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              title,
-              style: TextStyle(
-                  color: LightColor.extraDarkPurple,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-              width: width,
-              height: 30,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  _chip("Data Scientist", LightColor.yellow, height: 5),
-                  SizedBox(width: 10),
-                  _chip("Data Analyst", LightColor.seeBlue, height: 5),
-                  SizedBox(width: 10),
-                  _chip("Data Engineer", LightColor.orange, height: 5),
-                  SizedBox(width: 10),
-                  _chip("Data Scientist", LightColor.lightBlue, height: 5),
-                ],
-              )),
-          SizedBox(height: 10)
-        ],
-      ),
-    );
-  }
+//  Widget _categoryRow(String title) {
+//    return Container(
+//      // margin: EdgeInsets.symmetric(horizontal: 20),
+//      height: 68,
+//      child: Column(
+//        crossAxisAlignment: CrossAxisAlignment.start,
+//        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//        children: <Widget>[
+//          Padding(
+//            padding: EdgeInsets.symmetric(horizontal: 20),
+//            child: Text(
+//              title,
+//              style: TextStyle(
+//                  color: LightColor.extraDarkPurple,
+//                  fontWeight: FontWeight.bold),
+//            ),
+//          ),
+//          SizedBox(
+//            height: 10,
+//          ),
+//          Container(
+//              width: width,
+//              height: 30,
+//              child: ListView(
+//                scrollDirection: Axis.horizontal,
+//                children: <Widget>[
+//                  SizedBox(width: 20),
+//                  _chip("Data Scientist", LightColor.yellow, height: 5),
+//                  SizedBox(width: 10),
+//                  _chip("Data Analyst", LightColor.seeBlue, height: 5),
+//                  SizedBox(width: 10),
+//                  _chip("Data Engineer", LightColor.orange, height: 5),
+//                  SizedBox(width: 10),
+//                  _chip("Data Scientist", LightColor.lightBlue, height: 5),
+//                ],
+//              )),
+//          SizedBox(height: 10)
+//        ],
+//      ),
+//    );
+//  }
 
   Widget _courseList() {
     return SingleChildScrollView(
@@ -151,6 +150,13 @@ class _RecomendedPageState extends State<RecomendedPage> {
               indent: 20,
             ),
             _courceInfo(CourseList.list[2], _decorationContainerC(),
+                background: LightColor.lightOrange2),
+            Divider(
+              thickness: 1,
+              endIndent: 20,
+              indent: 20,
+            ),
+            _courceInfo(CourseList.list[3], _decorationContainerC(),
                 background: LightColor.lightOrange2),
           ],
         ),
@@ -398,7 +404,7 @@ class _RecomendedPageState extends State<RecomendedPage> {
             children: <Widget>[
               _header(context),
               SizedBox(height: 20),
-              _categoryRow("Start a new career"),
+//              _categoryRow("Start a new career"),
               _courseList()
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ftvapp/pages/dashboard.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/login.dart';
 import 'package:ftvapp/services/auth.dart';
@@ -153,11 +154,7 @@ class _RegisterState extends State<Register> {
                       left: 10,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage(),
-                                  fullscreenDialog: true));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard(), fullscreenDialog: true));
                         },
                         child: Align(
                           alignment: Alignment.topLeft,
