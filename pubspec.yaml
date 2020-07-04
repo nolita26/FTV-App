@@ -34,8 +34,7 @@ dependencies:
   chewie: ^0.9.10
   font_awesome_flutter: ^8.8.1
   splashscreen: ^1.2.0
-
-
+  flutter_screenutil: ^2.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -74,6 +73,10 @@ flutter:
     - images/beautycare.png
     - images/nails.png
     - images/fashion.png
+    - images/artistry.jpg
+    - images/Hair1.jpg
+    - images/nutrition.jpg
+    - images/logo.png
 
 
 
