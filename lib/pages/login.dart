@@ -1,8 +1,10 @@
-import 'package:ftvapp/pages/home_page.dart';
-import 'package:ftvapp/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/register.dart';
+import 'package:ftvapp/services/auth.dart';
+import 'package:ftvapp/theme/color/light_color.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -15,226 +17,250 @@ class _LoginState extends State<Login> {
   bool isLoading = false;
 
   AuthService _authService = AuthService();
-  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+
+  Widget FormCard(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(32.0),
+      child: Container(
+          height: 350,
+          width: width,
+          decoration: BoxDecoration(color: LightColor.purple, boxShadow: [
+            BoxShadow(
+                color: Colors.black12,
+                offset: Offset(0.0, 15.0),
+                blurRadius: 15.0),
+            BoxShadow(
+                color: Colors.black12,
+                offset: Offset(0.0, -10.0),
+                blurRadius: 10.0),
+          ]),
+          child: Stack(
+            fit: StackFit.expand,
+            alignment: Alignment.center,
+            children: <Widget>[
+              Positioned(
+                  top: 30,
+                  right: -100,
+                  child: _circularContainer(300, LightColor.lightpurple)),
+              Positioned(
+                  top: -100,
+                  left: -45,
+                  child: _circularContainer(width * .5, LightColor.darkpurple)),
+              Positioned(
+                  top: -180,
+                  right: -30,
+                  child: _circularContainer(width * .7, Colors.transparent,
+                      borderColor: Colors.white38)),
+              Positioned(
+                top: 40,
+                left: 0,
+                child: Container(
+                  width: width,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: 8.0, right: 40.0, top: 8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Login",
+                                style: TextStyle(
+                                    fontSize: ScreenUtil().setSp(45),
+                                    fontFamily: "Poppins-Bold",
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: .6)),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(75),
+                            ),
+                            Text("Username",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Poppins-Medium",
+                                    fontSize: ScreenUtil().setSp(26))),
+                            TextField(
+                              decoration: InputDecoration(
+                                  hintText: "Username",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black, fontSize: 12.0)),
+                            ),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(30),
+                            ),
+                            Text("Password",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Poppins-Medium",
+                                    fontSize: ScreenUtil().setSp(26))),
+                            TextField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                  hintText: "Password",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black, fontSize: 12.0)),
+                            ),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(35),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Text(
+                                  "Forgot Password?",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Poppins-Medium",
+                                      fontSize: ScreenUtil().setSp(28)),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          )),
+    );
+  }
+
+  Widget _circularContainer(double height, Color color,
+      {Color borderColor = Colors.transparent, double borderWidth = 2}) {
+    return Container(
+      height: height,
+      width: height,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color,
+        border: Border.all(color: borderColor, width: borderWidth),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final emailField = Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(32.0),
-      ),
-      child: TextField(
-        obscureText: false,
-        style: style,
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Email",
-            border:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-      ),
-    );
-
-    final passwordField = Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(32.0),
-      ),
-      child: TextField(
-        obscureText: true,
-        style: style,
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Password",
-            fillColor: Colors.white,
-            border:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-      ),
-    );
-
-    final loginButton = Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Colors.white,
-      child: MaterialButton(
-        minWidth: MediaQuery
-            .of(context)
-            .size
-            .width,
-        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
-        child: Text("Login",
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-                color: Colors.black, fontWeight: FontWeight.bold)),
-      ),
-    );
-
+    ScreenUtil.init(width: 750, height: 1334, allowFontScaling: true);
     return Scaffold(
+      resizeToAvoidBottomPadding: true,
       body: Stack(
+        fit: StackFit.expand,
         children: <Widget>[
-          Image.asset(
-            'images/white.jfif',
-            fit: BoxFit.fill,
-            height: double.infinity,
-            width: double.infinity,
-          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
+              color: Colors.white,
               width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    Colors.black.withOpacity(1),
-                    Colors.black.withOpacity(0.9),
-                    Colors.black.withOpacity(0.8),
-                    Colors.black.withOpacity(0.7),
-                    Colors.black.withOpacity(0.6),
-                    Colors.black.withOpacity(0.5),
-                    Colors.black.withOpacity(0.4),
-                    Colors.black.withOpacity(0.1),
-                    Colors.black.withOpacity(0.05),
-                    Colors.black.withOpacity(0.025),
-                  ],
-                ),
-              ),
               child: Padding(
                 padding: EdgeInsets.only(left: 20, top: 30, right: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Stack(
                   children: <Widget>[
                     Positioned(
                       top: 20,
                       left: 10,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(), fullscreenDialog: true));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                  fullscreenDialog: true));
                         },
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Icon(
-                              Icons.arrow_back_ios,
+                            Icons.arrow_back_ios,
                             color: Colors.black,
                           ),
                         ),
                       ),
                     ),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-      //              Text(
-      //                " Sign In",
-      //                style: TextStyle(
-      //                  color: Colors.black,
-      //                  fontWeight: FontWeight.bold,
-      //                  fontSize: 25,
-      //                  height: 3,
-      //                ),
-      //              ),
-                    SizedBox(height: 90),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: emailField,
-                    ),
-                    SizedBox(height: 25.0),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: passwordField,
-                    ),
-                    SizedBox(height: 15.0),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                    Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(
-                            "Forgot Password?",
-                            style: TextStyle(
-                                color: Colors.red,
-                                fontFamily: "Poppins-Medium",
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold),
-                          )
+                          FormCard(context),
+                          SizedBox(height: 30),
+                          Row(children: <Widget>[
+                            Expanded(
+                                child: Container(
+                              margin: const EdgeInsets.only(
+                                  left: 10.0, right: 20.0),
+                              child: Divider(
+                                color: Colors.black,
+                                thickness: 3.0,
+                              ),
+                            )),
+                            Text(
+                              "OR",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16),
+                            ),
+                            Expanded(
+                                child: Container(
+                              margin: const EdgeInsets.only(
+                                  left: 20.0, right: 10.0),
+                              child: Divider(
+                                color: Colors.black,
+                                thickness: 3.0,
+                              ),
+                            )),
+                          ]),
+                          SizedBox(height: 25),
+                          _signInButton(),
+                          SizedBox(height: 15),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'New here?',
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5.0,
+                              ),
+                              InkWell(
+                                child: Text(
+                                  'Register',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Register(),
+                                          fullscreenDialog: true));
+                                },
+                              ),
+                            ],
+                          ),
                         ],
                       ),
-                    ),
-                    SizedBox(height: 30.0),
-                    Container(
-                        margin: EdgeInsets.symmetric(horizontal: 64.0),
-                        child: loginButton),
-                    SizedBox(height: 30),
-                    Row(children: <Widget>[
-                      Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 10.0, right: 20.0),
-                            child: Divider(
-                              color: Colors.white,
-                              thickness: 3.0,
-                            ),
-                          )),
-                      Text(
-                        "OR",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                      Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 20.0, right: 10.0),
-                            child: Divider(
-                              color: Colors.white,
-                              thickness: 3.0,
-                            ),
-                          )),
-                    ]),
-                    SizedBox(height: 25),
-                    _signInButton(),
-                    SizedBox(height: 15),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Dont have an account?',
-                          style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
-                        InkWell(
-                          child: Text(
-                            'Register',
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Register(), fullscreenDialog: true));
-                          },
-                        ),
-                      ],
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
-        ),
+            ),
+          )
+        ],
       ),
-    )],
-    ),
     );
   }
 
