@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ftvapp/pages/wishlist.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/login.dart';
 import 'package:ftvapp/pages/recomended_page.dart';
 import 'package:ftvapp/pages/search.dart';
+import 'package:ftvapp/pages/wishlist.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
 class Dashboard extends StatefulWidget {
@@ -12,7 +12,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-
   int pageIndex = 0;
   final HomePage _homePage = HomePage();
   final Search _search = Search();
@@ -23,7 +22,7 @@ class _DashboardState extends State<Dashboard> {
   Widget _showPage = new HomePage();
 
   Widget _pageChooser(int page) {
-    switch(page) {
+    switch (page) {
       case 0:
         return _homePage;
         break;
@@ -56,7 +55,7 @@ class _DashboardState extends State<Dashboard> {
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          selectedItemColor: LightColor.,
+          selectedItemColor: LightColor.darkBlue,
           unselectedItemColor: Colors.grey.shade500,
           type: BottomNavigationBarType.fixed,
           currentIndex: 0,
