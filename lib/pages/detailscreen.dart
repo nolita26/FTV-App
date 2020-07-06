@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
+import 'package:ftvapp/source/video_player.dart';
 
 class DetailScreen extends StatelessWidget {
   DetailScreen({Key key}) : super(key: key);
@@ -273,10 +273,10 @@ class DetailScreen extends StatelessWidget {
                                  ),
                                 SizedBox(height: 20),
                                 CourseContent(
-                                    number: "01",
-                                    duration: 5.35,
-                                    title: "Welcome to the Course",
-                                    isDone: true,
+                                  number: "01",
+                                  duration: 5.35,
+                                  title: "Welcome to the Course",
+                                  isDone: true,
                                 ),
                                 CourseContent(
                                     number: '02',
@@ -288,11 +288,13 @@ class DetailScreen extends StatelessWidget {
                                     number: '03',
                                     duration: 15.35,
                                     title: "Beauty Care Process",
+                                    isDone: false,
                                 ),
                                 CourseContent(
                                     number: '04',
                                     duration: 5.35,
                                     title: "Customer Perspective",
+                                    isDone: false,
                                 ),
                               ],
                             ),
@@ -368,7 +370,16 @@ class CourseContent extends StatelessWidget {
               shape: BoxShape.circle,
               color: LightColor.lightpurple.withOpacity(isDone ? 1 : .5),
             ),
-            child: Icon(Icons.play_arrow, color: Colors.white),
+            child: GestureDetector(
+              onTap: () {
+               Navigator.push(context, MaterialPageRoute(builder: (_) => VideoPlay()));
+              },
+              child: Icon(
+                Icons.play_arrow,
+                color: Colors.white,
+              ),
+            ),
+
           )
         ],
       ),
@@ -376,15 +387,3 @@ class CourseContent extends StatelessWidget {
   }
 }
 
-  Widget _circularContainer(double height, Color color,
-      {Color borderColor = Colors.transparent, double borderWidth = 2}) {
-    return Container(
-      height: height,
-      width: height,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
-        border: Border.all(color: borderColor, width: borderWidth),
-      ),
-    );
-  }

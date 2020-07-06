@@ -15,8 +15,8 @@ class _DashboardState extends State<Dashboard> {
 
   int pageIndex = 0;
   final HomePage _homePage = HomePage();
-  final Search _search = Search();
   final RecommendedPage _recommendedPage = RecommendedPage();
+  final Search _search = Search();
   final Wishlist _wishlist = Wishlist();
   final Login _login = Login();
 
@@ -28,10 +28,10 @@ class _DashboardState extends State<Dashboard> {
         return _homePage;
         break;
       case 1:
-        return _search;
+        return _recommendedPage;
         break;
       case 2:
-        return _recommendedPage;
+        return _search;
         break;
       case 3:
         return _wishlist;
@@ -56,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          selectedItemColor: LightColor.,
+          selectedItemColor: LightColor.purple,
           unselectedItemColor: Colors.grey.shade500,
           type: BottomNavigationBarType.fixed,
           currentIndex: 0,
@@ -66,12 +66,12 @@ class _DashboardState extends State<Dashboard> {
               title: Text('Home'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              title: Text('Search'),
-            ),
-            BottomNavigationBarItem(
               icon: Icon(Icons.star),
               title: Text('Recommended'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: Text('Search'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border),
