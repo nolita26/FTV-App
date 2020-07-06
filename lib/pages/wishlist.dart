@@ -154,7 +154,6 @@ class _WishlistState extends State<Wishlist> {
                             ],
                           ),
                         ),
-                        SizedBox(width: 10),
                         Container(
                           width: 140,
                           decoration: BoxDecoration(
@@ -178,7 +177,6 @@ class _WishlistState extends State<Wishlist> {
                             ],
                           ),
                         ),
-                        SizedBox(width: 10),
                         Container(
                           width: 160,
                           decoration: BoxDecoration(

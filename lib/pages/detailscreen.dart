@@ -221,13 +221,18 @@ class DetailScreen extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Enroll now',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            letterSpacing: 2,
-                            color: Colors.white,
-                            fontSize: 22,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => VideoPlay()));
+                          },
+                          child: Text(
+                            'Enroll now',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              letterSpacing: 2,
+                              color: Colors.white,
+                              fontSize: 22,
+                            ),
                           ),
                         ),
                       ),
@@ -257,133 +262,250 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                      Stack(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(30),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                 Text("Course Content",
-                                     style: TextStyle(
-                                       fontSize: 24,
-                                       color: Color(0xFF0D1333),
-                                       fontWeight: FontWeight.bold,
-                                     ),
-                                 ),
-                                SizedBox(height: 20),
-                                CourseContent(
-                                  number: "01",
-                                  duration: 5.35,
-                                  title: "Welcome to the Course",
-                                  isDone: true,
-                                ),
-                                CourseContent(
-                                    number: '02',
-                                    duration: 19.04,
-                                    title: "Beauty Care - Intro",
-                                    isDone: true,
-                                ),
-                                CourseContent(
-                                    number: '03',
-                                    duration: 15.35,
-                                    title: "Beauty Care Process",
-                                    isDone: false,
-                                ),
-                                CourseContent(
-                                    number: '04',
-                                    duration: 5.35,
-                                    title: "Customer Perspective",
-                                    isDone: false,
-                                ),
-                              ],
-                            ),
+                  SizedBox(height: 30),
+                  Divider(
+                    height: 10,
+                    thickness: 0.5,
+                    color: Colors.grey[900],
+                    indent: 15,
+                    endIndent: 20,
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 260, 0),
+                    child: Column(
+                      children: <Widget>[
+                        Text("Description:",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Color(0xFF0D1333),
+                            fontWeight: FontWeight.w600,
                           ),
-                        ]),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: Container(
+                      child: Text(
+                        "This course is a one-stop-shop for everything you'll need to know to get started with business foundation, along with a few incentives. We'll begin with the basics of business development, learning about marketing, finance and getting to know about public relations.",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Divider(
+                    height: 10,
+                    thickness: 0.5,
+                    color: Colors.grey[900],
+                    indent: 15,
+                    endIndent: 20,
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 160, 0),
+                    child: Column(
+                      children: <Widget>[
+                        Text("This Course includes:",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Color(0xFF0D1333),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 270,
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      children: <Widget>[
+                        SizedBox(width: 20),
+                          Row(
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.play_circle_outline),
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "10 total hours on-demand video",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.assignment),
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "14 Articles",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.lightbulb_outline),
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "Full liftetime access",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.insert_drive_file),
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "Support Files",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.call_to_action),
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "Certificate of Completion",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  ),
+                  Divider(
+                    height: 10,
+                    thickness: 0.5,
+                    color: Colors.grey[900],
+                    indent: 15,
+                    endIndent: 20,
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 210, 0),
+                    child: Column(
+                      children: <Widget>[
+                        Text("What will I learn?",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Color(0xFF0D1333),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 260,
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      children: <Widget>[
+                        SizedBox(width: 20),
+                        Row(
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.check),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              "Hands-on business marketing",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.check),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              "Expand foundation on global level",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.check),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              "Lifetime learning experience",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.check),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              "Working in finance & technical environment",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             )));
   }
 }
-
-class CourseContent extends StatelessWidget {
-  final String number;
-  final double duration;
-  final String title;
-  final bool isDone;
-  const CourseContent({
-    Key key,
-    this.number,
-    this.duration,
-    this.title,
-    this.isDone = false,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 30),
-      child: Row(
-        children: <Widget>[
-          Text(
-            number,
-            style: TextStyle(
-              fontSize: 28,
-              color: Color(0xFF0D1333),
-              fontWeight: FontWeight.bold,
-            ).copyWith(
-              color: Color(0xFF0D1333).withOpacity(.15),
-              fontSize: 32,
-            ),
-          ),
-          SizedBox(width: 20),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "$duration mins\n",
-                  style: TextStyle(
-                    color: Color(0xFF0D1333).withOpacity(.5),
-                    fontSize: 18,
-                  ),
-                ),
-                TextSpan(
-                  text: title,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color(0xFF0D1333),
-                    // fontWeight: FontWeight.bold,
-                  ).copyWith(
-                    fontWeight: FontWeight.w600,
-                    height: 1.5,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Spacer(),
-          Container(
-            margin: EdgeInsets.only(left: 20),
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: LightColor.lightpurple.withOpacity(isDone ? 1 : .5),
-            ),
-            child: GestureDetector(
-              onTap: () {
-               Navigator.push(context, MaterialPageRoute(builder: (_) => VideoPlay()));
-              },
-              child: Icon(
-                Icons.play_arrow,
-                color: Colors.white,
-              ),
-            ),
-
-          )
-        ],
-      ),
-    );
-  }
-}
-
