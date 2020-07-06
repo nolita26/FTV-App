@@ -49,7 +49,7 @@ class DetailScreen extends StatelessWidget {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
                       },
                       child: Icon(
                         Icons.keyboard_arrow_left,
