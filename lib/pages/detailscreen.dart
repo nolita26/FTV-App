@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/pages/dashboard.dart';
+import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 import 'package:ftvapp/source/video_player.dart';
 

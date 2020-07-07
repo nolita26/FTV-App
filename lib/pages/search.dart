@@ -119,13 +119,13 @@ class Search extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Beauty", LightColor.grey, height: 5),
+                  _chip("Beauty", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Nutrionist", LightColor.grey, height: 5),
+                  _chip("Nutrionist", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Fashion", LightColor.grey, height: 5),
+                  _chip("Fashion", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Ayurveda", LightColor.grey, height: 5),
+                  _chip("Ayurveda", LightColor.darkgrey, height: 5),
                 ],
               )),
           SizedBox(height: 10),
@@ -136,15 +136,15 @@ class Search extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Therapy", LightColor.grey, height: 5),
+                  _chip("Therapy", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Nail", LightColor.grey, height: 5),
+                  _chip("Nail", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Makeup", LightColor.grey, height: 5),
+                  _chip("Makeup", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Hairstyle", LightColor.grey, height: 5),
+                  _chip("Hairstyle", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Spa", LightColor.grey, height: 5),
+                  _chip("Spa", LightColor.darkgrey, height: 5),
                 ],
               ),
           ),
@@ -298,12 +298,12 @@ class Search extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             categoryButton(
-                              image: 'images/ayurveda.jpg',
-                              title: 'Ayurveda',
+                              image: 'images/beauty.jpg',
+                              title: 'Beauty',
                             ), // Hair
                             categoryButton(
-                                image: 'images/therapy.jpg',
-                                title: 'Therapy'
+                                image: 'images/model5.jpg',
+                                title: 'Fashion'
                             ), // Spa
                           ],
                         ), //Ha
