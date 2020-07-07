@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ftvapp/pages/detailscreen.dart';
+import 'package:ftvapp/contents/detailscreen.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:ftvapp/source/chewie_list_item.dart';
