@@ -15,7 +15,7 @@ class Search extends StatelessWidget {
         height: 120,
         width: width,
         decoration: BoxDecoration(
-          color: LightColor.seeBlue,
+          color: LightColor.purple,
         ),
         child: Stack(
           fit: StackFit.expand,
@@ -24,11 +24,11 @@ class Search extends StatelessWidget {
             Positioned(
                 top: 30,
                 right: -100,
-                child: _circularContainer(300, LightColor.lightseeBlue)),
+                child: _circularContainer(300, LightColor.lightpurple)),
             Positioned(
                 top: -100,
                 left: -45,
-                child: _circularContainer(width * .5, LightColor.darkseeBlue)),
+                child: _circularContainer(width * .5, LightColor.darkpurple)),
             Positioned(
                 top: -180,
                 right: -30,
@@ -91,6 +91,69 @@ class Search extends StatelessWidget {
   }
 
 
+  Widget _categoryList() {
+    return Container(
+      // margin: EdgeInsets.symmetric(horizontal: 20),
+      height: 90,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+//          Padding(
+//            padding: EdgeInsets.symmetric(horizontal: 20),
+//            child:
+//            Text(
+//              title,
+//              style: TextStyle(
+//                  color: LightColor.extraDarkPurple,
+//                  fontWeight: FontWeight.bold),
+//            ),
+//          ),
+//          SizedBox(
+//            height: 10,
+//          ),
+          Container(
+              width: width,
+              height: 40,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  SizedBox(width: 20),
+                  _chip("Beauty", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nutrionist", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Fashion", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Ayurveda", LightColor.grey, height: 5),
+                ],
+              )),
+          SizedBox(height: 10),
+          Container(
+              width: width,
+              height: 40,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  SizedBox(width: 20),
+                  _chip("Therapy", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nail", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Makeup", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Hairstyle", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Spa", LightColor.grey, height: 5),
+                ],
+              ),
+          ),
+        ],
+      ),
+    );
+  }
+
+
   Widget _categoryRow(
       String title,
       Color primary,
@@ -105,10 +168,27 @@ class Search extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                color: LightColor.titleTextColor, fontSize: 26, fontWeight: FontWeight.bold),
+                color: LightColor.darkgrey, fontSize: 26, fontWeight: FontWeight.bold),
           ),
 //          _chip("See all", primary)
         ],
+      ),
+    );
+  }
+
+  Widget _chip(String text, Color textColor,
+      {double height = 0, bool isPrimaryCard = false}) {
+    return Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: height),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        color: textColor.withAlpha(isPrimaryCard ? 200 : 50),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+            color: isPrimaryCard ? Colors.white : textColor, fontSize: 16),
       ),
     );
   }
@@ -165,11 +245,13 @@ class Search extends StatelessWidget {
                 children: <Widget>[
                   _header(context),
                   SizedBox(height: 20),
+                  _categoryRow("Top Searches", LightColor.purple, LightColor.darkpurple),
+                  SizedBox(height: 30),
+                  _categoryList(),
+                  SizedBox(height: 30),
                   _categoryRow("Categories", LightColor.purple, LightColor.darkpurple),
                   Container(
-                    padding: EdgeInsets.only(left: 20, top: 30),
-                    // Center is a layout widget. It takes a single child and positions it
-                    // in the middle of the parent.
+                    padding: EdgeInsets.only(left: 20, top: 10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[

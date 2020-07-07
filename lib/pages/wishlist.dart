@@ -21,7 +21,7 @@ class _WishlistState extends State<Wishlist> {
           height: 120,
           width: width,
           decoration: BoxDecoration(
-            color: LightColor.orange,
+            color: LightColor.yellow,
           ),
           child: Stack(
             fit: StackFit.expand,
@@ -30,11 +30,11 @@ class _WishlistState extends State<Wishlist> {
               Positioned(
                   top: 10,
                   right: -120,
-                  child: _circularContainer(300, LightColor.lightOrange2)),
+                  child: _circularContainer(300, LightColor.lightYellow)),
               Positioned(
                   top: -60,
                   left: -65,
-                  child: _circularContainer(width * .5, LightColor.darkOrange)),
+                  child: _circularContainer(width * .5, LightColor.darkYellow)),
               Positioned(
                   top: -230,
                   right: -30,
@@ -134,7 +134,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 130,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -157,7 +157,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 140,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -180,7 +180,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 160,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -203,7 +203,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 160,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -226,7 +226,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 160,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -249,7 +249,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 160,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -272,7 +272,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 160,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -295,7 +295,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 160,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
@@ -318,7 +318,7 @@ class _WishlistState extends State<Wishlist> {
                         Container(
                           width: 160,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(

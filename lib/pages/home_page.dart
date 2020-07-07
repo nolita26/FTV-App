@@ -130,7 +130,7 @@ class HomePage extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                color: LightColor.titleTextColor, fontSize: 20, fontWeight: FontWeight.bold),
+                color: LightColor.darkgrey, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           _chip("See all", primary)
         ],
@@ -142,7 +142,7 @@ class HomePage extends StatelessWidget {
   Widget _categoryList() {
     return Container(
       // margin: EdgeInsets.symmetric(horizontal: 20),
-      height: 68,
+      height: 90,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -162,25 +162,45 @@ class HomePage extends StatelessWidget {
 //          ),
           Container(
               width: width,
-              height: 30,
+              height: 40,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Beauty", LightColor.yellow, height: 5),
+                  _chip("Beauty", LightColor.grey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Nutrionist", LightColor.seeBlue, height: 5),
+                  _chip("Nutrionist", LightColor.grey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Fashion", LightColor.orange, height: 5),
+                  _chip("Fashion", LightColor.grey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Ayurveda", LightColor.lightBlue, height: 5),
+                  _chip("Ayurveda", LightColor.grey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Therapy", LightColor.yellow, height: 5),
+                  _chip("Therapy", LightColor.grey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Nail", LightColor.seeBlue, height: 5),
+                  _chip("Modelling", LightColor.grey, height: 5),
                 ],
               )),
-          SizedBox(height: 10)
+          SizedBox(height: 10),
+          Container(
+              width: width,
+              height: 40,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  SizedBox(width: 20),
+                  _chip("Hairstyle", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Spa", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Makeup", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nails", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Body Care", LightColor.grey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nail", LightColor.grey, height: 5),
+                ],
+              )),
         ],
       ),
     );
@@ -631,8 +651,8 @@ class HomePage extends StatelessWidget {
                   _categoryRow("Categories", LightColor.purple, LightColor.darkpurple),
                   SizedBox(height: 20),
                   _categoryList(),
-                  SizedBox(height: 0),
-                  _categoryRow("Featured", LightColor.orange, LightColor.orange),
+                  SizedBox(height: 30),
+                  _categoryRow("Featured", LightColor.purple, LightColor.purple),
                   _featuredRowA(context),
                   SizedBox(height: 0),
                   _categoryRow("Top Courses on BLABLA", LightColor.purple, LightColor.darkpurple),
