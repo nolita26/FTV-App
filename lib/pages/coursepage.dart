@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ftvapp/helper/courseModel.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
 import 'package:ftvapp/pages/dashboard.dart';
-import 'package:ftvapp/pages/detailscreen.dart';
+import 'package:ftvapp/contents/detailscreen.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 import 'package:ftvapp/theme/theme.dart';
 
