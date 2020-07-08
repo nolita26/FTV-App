@@ -295,13 +295,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.more_horiz,
-                                size: 30,
+                                size: 25,
                               ),
                               VerticalDivider(),
                               Text(
                                 "About The Course",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                     fontSize: 20),
                               )
                             ],
                           ),
@@ -314,7 +314,6 @@ class _VideoPlayState extends State<VideoPlay> {
                             child: Text(
                               "This course is a one-stop-shop for everything you'll need to know to get started with business foundation, along with a few incentives. We'll begin with the basics of business development, learning about marketing, finance and getting to know about public relations. ",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                               ),
                             ),
@@ -339,13 +338,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.person,
-                                size: 30,
+                                size: 25,
                               ),
                               VerticalDivider(),
                               Text(
                                 "About The Instructor",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    fontSize: 20),
                               )
                             ],
                           ),
@@ -358,7 +357,6 @@ class _VideoPlayState extends State<VideoPlay> {
                             child: Text(
                               "This course is a one-stop-shop for everything you'll need to know to get started with business foundation, along with a few incentives. We'll begin with the basics of business development, learning about marketing, finance and getting to know about public relations.",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                               ),
                             ),
@@ -373,13 +371,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.share,
-                                size: 30,
+                                size: 25,
                               ),
                               VerticalDivider(),
                               Text(
                                 "Share This Course",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    fontSize: 20),
                               )
                             ],
                           ),
@@ -398,13 +396,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.notifications,
-                                size: 30,
+                                size: 25,
                               ),
                               VerticalDivider(),
                               Text(
                                 "Announcements",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    fontSize: 20),
                               )
                             ],
                           ),
