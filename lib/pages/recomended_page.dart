@@ -24,7 +24,7 @@ class _RecommendedPageState extends State<RecommendedPage> {
           height: 120,
           width: width,
           decoration: BoxDecoration(
-            color: LightColor.orange,
+            color: LightColor.yellow,
           ),
           child: Stack(
             fit: StackFit.expand,
@@ -33,11 +33,11 @@ class _RecommendedPageState extends State<RecommendedPage> {
               Positioned(
                   top: 10,
                   right: -120,
-                  child: _circularContainer(300, LightColor.lightOrange2)),
+                  child: _circularContainer(300, LightColor.lightYellow)),
               Positioned(
                   top: -60,
                   left: -65,
-                  child: _circularContainer(width * .5, LightColor.darkOrange)),
+                  child: _circularContainer(width * .5, LightColor.darkYellow)),
               Positioned(
                   top: -230,
                   right: -30,
@@ -59,7 +59,7 @@ class _RecommendedPageState extends State<RecommendedPage> {
                           Align(
                               alignment: Alignment.center,
                               child: Text(
-                                "Recomended",
+                                "Recommended",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 30,

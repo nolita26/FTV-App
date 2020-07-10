@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
-import 'package:ftvapp/pages/detailscreen.dart';
+import 'package:ftvapp/pages/coursepage.dart';
+import 'package:ftvapp/contents/detailscreen.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
 class HomePage extends StatelessWidget {
@@ -54,12 +55,6 @@ class HomePage extends StatelessWidget {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-//                              Text(
-//                                "Search courses",
-//                                style: TextStyle(
-//                                    color: Colors.white,
-//                                    fontWeight: FontWeight.w500),
-//                              ),
                               Text(
                                 "Learn and Explore!",
                                 style: TextStyle(
@@ -75,22 +70,9 @@ class HomePage extends StatelessWidget {
                                     fontSize: 20,
                                     fontWeight: FontWeight.w500),
                               ),
-//                              SizedBox(width: 40),
-//                              Icon(
-//                                Icons.search,
-//                                color: Colors.white,
-//                                size: 30,
-//                              )
                             ],
                           ),
                           SizedBox(height: 20),
-//                          Text(
-//                            "Type Something...",
-//                            style: TextStyle(
-//                                color: Colors.white54,
-//                                fontSize: 30,
-//                                fontWeight: FontWeight.w500),
-//                          ),
                         ],
                       ),
                   ),
@@ -130,7 +112,7 @@ class HomePage extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                color: LightColor.titleTextColor, fontSize: 20, fontWeight: FontWeight.bold),
+                color: LightColor.darkgrey, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           _chip("See all", primary)
         ],
@@ -142,45 +124,52 @@ class HomePage extends StatelessWidget {
   Widget _categoryList() {
     return Container(
       // margin: EdgeInsets.symmetric(horizontal: 20),
-      height: 68,
+      height: 90,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-//          Padding(
-//            padding: EdgeInsets.symmetric(horizontal: 20),
-//            child:
-//            Text(
-//              title,
-//              style: TextStyle(
-//                  color: LightColor.extraDarkPurple,
-//                  fontWeight: FontWeight.bold),
-//            ),
-//          ),
-//          SizedBox(
-//            height: 10,
-//          ),
           Container(
               width: width,
-              height: 30,
+              height: 40,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Beauty", LightColor.yellow, height: 5),
+                  _chip("Beauty", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Nutrionist", LightColor.seeBlue, height: 5),
+                  _chip("Nutrionist", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Fashion", LightColor.orange, height: 5),
+                  _chip("Fashion", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Ayurveda", LightColor.lightBlue, height: 5),
+                  _chip("Ayurveda", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Therapy", LightColor.yellow, height: 5),
+                  _chip("Therapy", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Nail", LightColor.seeBlue, height: 5),
+                  _chip("Modelling", LightColor.darkgrey, height: 5),
                 ],
               )),
-          SizedBox(height: 10)
+          SizedBox(height: 10),
+          Container(
+              width: width,
+              height: 40,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  SizedBox(width: 20),
+                  _chip("Hairstyle", LightColor.darkgrey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Spa", LightColor.darkgrey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Makeup", LightColor.darkgrey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nails", LightColor.darkgrey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Body Care", LightColor.darkgrey, height: 5),
+                  SizedBox(width: 10),
+                  _chip("Nail", LightColor.darkgrey, height: 5),
+                ],
+              )),
         ],
       ),
     );
@@ -197,15 +186,15 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => CoursePage()));
               },
               child: _card(
-                  primary: LightColor.orange,
+                  primary: LightColor.darkYellow,
                   backWidget:
-                  _decorationContainerA(LightColor.lightOrange, 50, -30),
-                  chipColor: LightColor.orange,
-                  chipText1: "Find the right degree for you",
-                  chipText2: "8 Cources",
+                  _decorationContainerA(LightColor.lightYellow, 50, -30),
+                  chipColor: LightColor.yellow,
+                  chipText1: "Nutritional Learning & foundation",
+                  chipText2: "10 Cources",
                   isPrimaryCard: true,
                   imgPath:
                   "https://jshopping.in/images/detailed/591/ibboll-Fashion-Mens-Optical-Glasses-Frames-Classic-Square-Wrap-Frame-Luxury-Brand-Men-Clear-Eyeglasses-Frame.jpg",
@@ -216,11 +205,11 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
               },
               child: _card(
-                  primary: Colors.white,
-                  chipColor: LightColor.seeBlue,
-                  backWidget: _decorationContainerB(Colors.white, 90, -40),
-                  chipText1: "Become a data scientist",
-                  chipText2: "8 Cources",
+                  primary: LightColor.purple,
+                  chipColor: LightColor.extraDarkPurple,
+                  backWidget: _decorationContainerB(LightColor.purple, 90, -40),
+                  chipText1: "Become a beauty expert",
+                  chipText2: "7 Cources",
                   imgPath:
                   "https://hips.hearstapps.com/esquireuk.cdnds.net/16/39/980x980/square-1475143834-david-gandy.jpg?resize=480:*",
               ),
@@ -230,11 +219,11 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
               },
               child: _card(
-                  primary: Colors.white,
-                  chipColor: LightColor.lightOrange,
-                  backWidget: _decorationContainerC(Colors.white, 50, -30),
-                  chipText1: "Become a digital marketer",
-                  chipText2: "8 Cources",
+                  primary: LightColor.lightYellow,
+                  chipColor: LightColor.darkYellow,
+                  backWidget: _decorationContainerC(LightColor.yellow, 50, -30),
+                  chipText1: "Become a Hairstylist",
+                  chipText2: "5 Cources",
                   imgPath:
                   "https://www.visafranchise.com/wp-content/uploads/2019/05/patrick-findaro-visa-franchise-square.jpg",
               ),
@@ -244,12 +233,12 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
               },
               child: _card(
-                  primary: Colors.white,
-                  chipColor: LightColor.seeBlue,
-                  backWidget: _decorationContainerD(LightColor.seeBlue, -50, 30,
-                      secondary: LightColor.lightseeBlue,
-                      secondaryAccent: LightColor.darkseeBlue),
-                  chipText1: "Become a machine learner",
+                  primary: LightColor.lightpurple,
+                  chipColor: LightColor.extraDarkPurple,
+                  backWidget: _decorationContainerD(LightColor.purple, -50, 30,
+                      secondary: LightColor.lightpurple,
+                      secondaryAccent: LightColor.darkpurple),
+                  chipText1: "Become a Fashionista",
                   chipText2: "8 Cources",
                   imgPath:
                   "https://d1mo3tzxttab3n.cloudfront.net/static/img/shop/560x580/vint0080.jpg",
@@ -275,14 +264,14 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
               },
               child: _card(
-                primary: LightColor.seeBlue,
-                chipColor: LightColor.seeBlue,
+                primary: LightColor.yellow,
+                chipColor: LightColor.darkYellow,
                 backWidget: _decorationContainerD(
-                    LightColor.darkseeBlue, -100, -65,
-                    secondary: LightColor.lightseeBlue,
-                    secondaryAccent: LightColor.seeBlue),
-                chipText1: "English for career development ",
-                chipText2: "8 Cources",
+                    LightColor.lightYellow, -100, -65,
+                    secondary: LightColor.yellow,
+                    secondaryAccent: LightColor.darkYellow),
+                chipText1: "Introduction to Beauty care",
+//                chipText2: "4 Cources",
                 isPrimaryCard: true,
                 imgPath:
                 "https://www.reiss.com/media/product/946/218/silk-paisley-printed-pocket-square-mens-morocco-in-pink-red-20.jpg?format=jpeg&auto=webp&quality=85&width=1200&height=1200&fit=bounds",
@@ -293,16 +282,16 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
               },
               child: _card(
-                  primary: Colors.white,
-                  chipColor: LightColor.lightpurple,
+                  primary: LightColor.lightpurple,
+                  chipColor: LightColor.extraDarkPurple,
                   backWidget: _decorationContainerE(
-                    LightColor.lightpurple,
-                    90,
-                    -40,
-                    secondary: LightColor.lightseeBlue,
+                    LightColor.purple,
+                    100,
+                    -20,
+                    secondary: LightColor.darkpurple,
                   ),
-                  chipText1: "Bussiness foundation",
-                  chipText2: "8 Cources",
+                  chipText1: "Skin care as a foundation",
+//                  chipText2: "8 Cources",
                   imgPath:
                   "https://i.dailymail.co.uk/i/pix/2016/08/05/19/36E9139400000578-3725856-image-a-58_1470422921868.jpg",
               ),
@@ -312,12 +301,12 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
               },
               child: _card(
-                  primary: Colors.white,
-                  chipColor: LightColor.lightOrange,
+                  primary: LightColor.lightYellow,
+                  chipColor: LightColor.darkYellow,
                   backWidget: _decorationContainerF(
-                      LightColor.lightOrange, LightColor.orange, 50, -30),
-                  chipText1: "Excel skill for business",
-                  chipText2: "8 Cources",
+                      LightColor.darkYellow, LightColor.darkYellow, 50, -30),
+                  chipText1: "Steps to acheive clear skin",
+//                  chipText2: "6 Cources",
                   imgPath:
                   "https://www.reiss.com/media/product/945/066/03-2.jpg?format=jpeg&auto=webp&quality=85&width=632&height=725&fit=bounds",
               ),
@@ -327,15 +316,15 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
               },
               child: _card(
-                primary: Colors.white,
-                chipColor: LightColor.seeBlue,
+                primary: LightColor.purple,
+                chipColor: LightColor.extraDarkPurple,
                 backWidget: _decorationContainerA(
-                  Colors.white,
+                  LightColor.lightpurple,
                   -50,
                   30,
                 ),
-                chipText1: "Beacame a data analyst",
-                chipText2: "8 Cources",
+                chipText1: "Become a Beauty expert",
+//                chipText2: "8 Cources",
                 imgPath:
                 "https://img.alicdn.com/imgextra/i4/52031722/O1CN0165X68s1OaiaYCEX6U_!!52031722.jpg",
               ),
@@ -356,7 +345,7 @@ class HomePage extends StatelessWidget {
       Color chipColor = LightColor.orange,
       bool isPrimaryCard = false}) {
     return Container(
-        height: isPrimaryCard ? 190 : 180,
+        height: isPrimaryCard ? 180 : 180,
         width: isPrimaryCard ? width * .32 : width * .32,
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         decoration: BoxDecoration(
@@ -385,7 +374,7 @@ class HomePage extends StatelessWidget {
                   bottom: 10,
                   left: 10,
                   child: _cardInfo(chipText1, chipText2,
-                      LightColor.titleTextColor, chipColor,
+                      Colors.white, chipColor,
                       isPrimaryCard: isPrimaryCard),
                 ),
               ],
@@ -472,7 +461,7 @@ class HomePage extends StatelessWidget {
           right: -65,
           child: CircleAvatar(
             radius: 70,
-            backgroundColor: Colors.blue.shade100,
+            backgroundColor: LightColor.darkpurple,
             child: CircleAvatar(radius: 30, backgroundColor: primary),
           ),
         ),
@@ -482,7 +471,7 @@ class HomePage extends StatelessWidget {
             child: ClipRect(
                 clipper: QuadClipper(),
                 child: CircleAvatar(
-                    backgroundColor: LightColor.lightseeBlue, radius: 40)))
+                    backgroundColor: LightColor.lightpurple, radius: 40)))
       ],
     );
   }
@@ -496,7 +485,7 @@ class HomePage extends StatelessWidget {
           left: -35,
           child: CircleAvatar(
             radius: 70,
-            backgroundColor: LightColor.orange.withAlpha(100),
+            backgroundColor: LightColor.darkYellow.withAlpha(100),
           ),
         ),
         Positioned(
@@ -505,7 +494,7 @@ class HomePage extends StatelessWidget {
             child: ClipRect(
                 clipper: QuadClipper(),
                 child: CircleAvatar(
-                    backgroundColor: LightColor.orange, radius: 40))),
+                    backgroundColor: LightColor.darkYellow, radius: 40))),
         _smallContainer(
           LightColor.yellow,
           35,
@@ -528,7 +517,7 @@ class HomePage extends StatelessWidget {
             backgroundColor: secondary,
           ),
         ),
-        _smallContainer(LightColor.yellow, 18, 35, radius: 12),
+        _smallContainer(Colors.white, 18, 35, radius: 12),
         Positioned(
           top: 130,
           left: -50,
@@ -573,7 +562,7 @@ class HomePage extends StatelessWidget {
             child: ClipRect(
                 clipper: QuadClipper(),
                 child: CircleAvatar(backgroundColor: secondary, radius: 50))),
-        _smallContainer(LightColor.yellow, 15, 90, radius: 5)
+        _smallContainer(LightColor.darkpurple, 15, 90, radius: 5)
       ],
     );
   }
@@ -600,7 +589,7 @@ class HomePage extends StatelessWidget {
                 clipper: QuadClipper(),
                 child: CircleAvatar(
                     backgroundColor: secondary.withAlpha(100), radius: 40))),
-        _smallContainer(LightColor.yellow, 15, 90, radius: 5)
+        _smallContainer(LightColor.lightYellow, 15, 90, radius: 5)
       ],
     );
   }
@@ -631,11 +620,11 @@ class HomePage extends StatelessWidget {
                   _categoryRow("Categories", LightColor.purple, LightColor.darkpurple),
                   SizedBox(height: 20),
                   _categoryList(),
-                  SizedBox(height: 0),
-                  _categoryRow("Featured", LightColor.orange, LightColor.orange),
+                  SizedBox(height: 30),
+                  _categoryRow("Featured", LightColor.purple, LightColor.purple),
                   _featuredRowA(context),
                   SizedBox(height: 0),
-                  _categoryRow("Top Courses on BLABLA", LightColor.purple, LightColor.darkpurple),
+                  _categoryRow("Top Courses on Beauty", LightColor.purple, LightColor.darkpurple),
                   _featuredRowB(context),
                 ],
               ),
