@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/contents/detailscreen.dart';
 import 'package:ftvapp/helper/courseModel.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
@@ -134,30 +135,57 @@ class _RecommendedPageState extends State<RecommendedPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            _courceInfo(CourseList.list[0],
-                _decorationContainerA(Colors.redAccent, -110, -85),
-                background: LightColor.seeBlue),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _courceInfo(CourseList.list[0],
+                  _decorationContainerA(Colors.redAccent, -110, -85),
+                  background: LightColor.seeBlue
+                  ),
+            ),
             Divider(
               thickness: 1,
               endIndent: 20,
               indent: 20,
             ),
-            _courceInfo(CourseList.list[1], _decorationContainerB(),
-                background: LightColor.darkOrange),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _courceInfo(CourseList.list[1],
+                  _decorationContainerB(),
+                  background: LightColor.darkOrange
+              ),
+            ),
             Divider(
               thickness: 1,
               endIndent: 20,
               indent: 20,
             ),
-            _courceInfo(CourseList.list[2], _decorationContainerC(),
-                background: LightColor.lightOrange2),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _courceInfo(CourseList.list[2],
+                  _decorationContainerC(),
+                  background: LightColor.lightOrange2
+              ),
+            ),
             Divider(
               thickness: 1,
               endIndent: 20,
               indent: 20,
             ),
-            _courceInfo(CourseList.list[3], _decorationContainerC(),
-                background: LightColor.lightOrange2),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+              },
+              child: _courceInfo(CourseList.list[3],
+                  _decorationContainerC(),
+                  background: LightColor.lightOrange2
+              ),
+            ),
           ],
         ),
       ),
@@ -220,7 +248,7 @@ class _RecommendedPageState extends State<RecommendedPage> {
                       SizedBox(
                         width: 5,
                       ),
-                      Text(model.noOfCource,
+                      Text(model.noOfCourse,
                           style: TextStyle(
                             color: LightColor.grey,
                             fontSize: 14,
@@ -369,35 +397,17 @@ class _RecommendedPageState extends State<RecommendedPage> {
         ));
   }
 
-//  BottomNavigationBarItem _bottomIcons(IconData icon) {
-//    return BottomNavigationBarItem(
-//        //  backgroundColor: Colors.blue,
-//        icon: Icon(icon),
-//        title: Text(""));
-//  }
+  BottomNavigationBarItem _bottomIcons(IconData icon) {
+    return BottomNavigationBarItem(
+        //  backgroundColor: Colors.blue,
+        icon: Icon(icon),
+        title: Text(""));
+  }
 
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-//        bottomNavigationBar: BottomNavigationBar(
-//          showSelectedLabels: false,
-//          showUnselectedLabels: false,
-//          selectedItemColor: LightColor.purple,
-//          unselectedItemColor: Colors.grey.shade300,
-//          type: BottomNavigationBarType.fixed,
-//          currentIndex: 1,
-//          items: [
-//            _bottomIcons(Icons.home),
-//            _bottomIcons(Icons.star_border),
-//            _bottomIcons(Icons.book),
-//            _bottomIcons(Icons.person),
-//          ],
-//          onTap: (index) {
-//            Navigator.pushReplacement(
-//                context, MaterialPageRoute(builder: (context) => HomePage()));
-//          },
-//        ),
         body: SingleChildScrollView(
             child: Container(
           child: Column(

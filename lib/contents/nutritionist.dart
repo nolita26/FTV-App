@@ -6,12 +6,12 @@ import 'package:ftvapp/contents/detailscreen.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 import 'package:ftvapp/theme/theme.dart';
 
-class Beauty extends StatefulWidget {
+class Nutrition extends StatefulWidget {
   @override
-  _BeautyState createState() => _BeautyState();
+  _NutritionState createState() => _NutritionState();
 }
 
-class _BeautyState extends State<Beauty> {
+class _NutritionState extends State<Nutrition> {
 
 //  RecommendedPage({Key key}) : super(key: key);
 
@@ -66,7 +66,7 @@ class _BeautyState extends State<Beauty> {
                           Align(
                               alignment: Alignment.center,
                               child: Text(
-                                "Courses on Beauty",
+                                "Courses on Nutrition",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 30,

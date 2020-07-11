@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/pages/coursepage.dart';
-import 'package:ftvapp/pages/dashboard.dart';
-import 'package:ftvapp/pages/home_page.dart';
+//import 'package:ftvapp/pages/dashboard.dart';
+//import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 import 'package:ftvapp/source/video_player.dart';
 
 class DetailScreen extends StatelessWidget {
-  DetailScreen({Key key}) : super(key: key);
+//  DetailScreen({Key key}) : super(key: key);
 
   double width;
 

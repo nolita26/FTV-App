@@ -230,7 +230,7 @@ class _CoursePageState extends State<CoursePage> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(model.noOfCource,
+                          Text(model.noOfCourse,
                               style: TextStyle(
                                 color: LightColor.grey,
                                 fontSize: 14,

@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/contents/Hair.dart';
+import 'package:ftvapp/contents/beauty.dart';
+import 'package:ftvapp/contents/fashion.dart';
+import 'package:ftvapp/contents/nail.dart';
+import 'package:ftvapp/contents/nutritionist.dart';
+import 'package:ftvapp/contents/therapy.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
 import 'package:ftvapp/pages/coursepage.dart';
 import 'package:ftvapp/contents/detailscreen.dart';
@@ -121,7 +127,7 @@ class HomePage extends StatelessWidget {
   }
 
 
-  Widget _categoryList() {
+  Widget _categoryList(BuildContext context) {
     return Container(
       // margin: EdgeInsets.symmetric(horizontal: 20),
       height: 90,
@@ -136,15 +142,47 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Beauty", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Beauty()));
+                    },
+                      child: _chip(
+                          "Beauty",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
-                  _chip("Nutrionist", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Nutrition()));
+                    },
+                      child: _chip(
+                          "Nutrition",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
-                  _chip("Fashion", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => Fashion()));
+                      },
+                      child: _chip(
+                          "Fashion",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Ayurveda", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Therapy", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Therapy()));
+                    },
+                      child: _chip(
+                          "Therapy",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Modelling", LightColor.darkgrey, height: 5),
                 ],
@@ -157,17 +195,31 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Hairstyle", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Hair()));
+                    },
+                      child: _chip(
+                          "Hairstyle",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Spa", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
                   _chip("Makeup", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Nails", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Nail()));
+                    },
+                      child: _chip(
+                          "Nails",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Body Care", LightColor.darkgrey, height: 5),
-                  SizedBox(width: 10),
-                  _chip("Nail", LightColor.darkgrey, height: 5),
                 ],
               )),
         ],
@@ -202,7 +254,7 @@ class HomePage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => Beauty()));
               },
               child: _card(
                   primary: LightColor.purple,
@@ -261,7 +313,7 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => Beauty()));
               },
               child: _card(
                 primary: LightColor.yellow,
@@ -619,7 +671,7 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 20),
                   _categoryRow("Categories", LightColor.purple, LightColor.darkpurple),
                   SizedBox(height: 20),
-                  _categoryList(),
+                  _categoryList(context),
                   SizedBox(height: 30),
                   _categoryRow("Featured", LightColor.purple, LightColor.purple),
                   _featuredRowA(context),

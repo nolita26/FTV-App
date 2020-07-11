@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/contents/Hair.dart';
+import 'package:ftvapp/contents/beauty.dart';
+import 'package:ftvapp/contents/fashion.dart';
+import 'package:ftvapp/contents/nutritionist.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
 class Wishlist extends StatefulWidget {
@@ -92,6 +96,7 @@ class _WishlistState extends State<Wishlist> {
                     child: Icon(
                       Icons.headset_mic,
                       size: 80,
+                      color: LightColor.darkgrey,
                     ),
                   ),
                   SizedBox(height: 30),
@@ -101,6 +106,7 @@ class _WishlistState extends State<Wishlist> {
                       style: TextStyle(
                         fontSize: 27,
                         fontWeight: FontWeight.w600,
+                        color: LightColor.darkgrey,
                       ),
                     ),
                   ),
@@ -110,6 +116,7 @@ class _WishlistState extends State<Wishlist> {
                       "Your wishlist will go here.",
                       style: TextStyle(
                         fontSize: 19,
+                        color: LightColor.darkgrey,
                       ),
                     ),
                   ),
@@ -120,7 +127,7 @@ class _WishlistState extends State<Wishlist> {
                         "Browse Categories",
                         style: TextStyle(
                           fontSize: 22,
-                          color: Color(0xFF0D1333),
+                          color: LightColor.darkgrey,
                           fontWeight: FontWeight.w600,
                         ),
                     ),
@@ -140,15 +147,19 @@ class _WishlistState extends State<Wishlist> {
                           child: Row(
                             children: <Widget>[
                               IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.child_care),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) => Beauty()));
+                                },
+                                icon: Icon(Icons.child_care,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Beauty",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -163,15 +174,19 @@ class _WishlistState extends State<Wishlist> {
                           child: Row(
                             children: <Widget>[
                               IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.favorite_border),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) => Fashion()));
+                                },
+                                icon: Icon(Icons.favorite_border,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Fashion",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -187,14 +202,16 @@ class _WishlistState extends State<Wishlist> {
                             children: <Widget>[
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.accessibility_new),
+                                icon: Icon(Icons.accessibility_new,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Health Care",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -210,14 +227,16 @@ class _WishlistState extends State<Wishlist> {
                             children: <Widget>[
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.nature),
+                                icon: Icon(Icons.nature,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Ayurveda",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -233,14 +252,16 @@ class _WishlistState extends State<Wishlist> {
                             children: <Widget>[
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.local_library),
+                                icon: Icon(Icons.local_library,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Nail art",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -255,15 +276,19 @@ class _WishlistState extends State<Wishlist> {
                           child: Row(
                             children: <Widget>[
                               IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.restaurant_menu),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) => Nutrition()));
+                                },
+                                icon: Icon(Icons.restaurant_menu,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
-                                "Nutritionist",
+                                "Nutrition",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -279,14 +304,16 @@ class _WishlistState extends State<Wishlist> {
                             children: <Widget>[
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.style),
+                                icon: Icon(Icons.style,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Modelling",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -302,14 +329,16 @@ class _WishlistState extends State<Wishlist> {
                             children: <Widget>[
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.brush),
+                                icon: Icon(Icons.brush,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Makeup",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],
@@ -324,15 +353,19 @@ class _WishlistState extends State<Wishlist> {
                           child: Row(
                             children: <Widget>[
                               IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.flare),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) => Hair()));
+                                },
+                                icon: Icon(Icons.flare,
+                                  color: LightColor.darkgrey,
+                                ),
                               ),
                               SizedBox(width: 5),
                               Text(
                                 "Hairstyle",
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: LightColor.darkgrey,
                                 ),
                               ),
                             ],

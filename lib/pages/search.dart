@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/contents/Hair.dart';
+import 'package:ftvapp/contents/nail.dart';
+import 'package:ftvapp/contents/nutritionist.dart';
+import 'package:ftvapp/contents/therapy.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 import 'package:ftvapp/contents/beauty.dart';
 import 'package:ftvapp/contents/fashion.dart';
@@ -118,7 +122,15 @@ class Search extends StatelessWidget {
                           height: 5),
                   ),
                   SizedBox(width: 10),
-                  _chip("Nutrionist", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Nutrition()));
+                    },
+                      child: _chip(
+                          "Nutrition",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   GestureDetector(
                     onTap: () {
@@ -141,13 +153,37 @@ class Search extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Therapy", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Therapy()));
+                    },
+                      child: _chip(
+                          "Therapy",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
-                  _chip("Nail", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Nail()));
+                    },
+                      child: _chip(
+                          "Nails",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Makeup", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Hairstyle", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Hair()));
+                    },
+                      child: _chip(
+                          "Hairstyle",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Spa", LightColor.darkgrey, height: 5),
                 ],
@@ -269,7 +305,7 @@ class Search extends StatelessWidget {
                             ), //Makeup
                             categoryButton(
                               image: 'images/Hair1.jpg',
-                              title: 'Hair',
+                              title: 'Hairstyle',
                             ), //Skin care
                           ],
                         ), //Makeup, Skin Care
@@ -278,11 +314,11 @@ class Search extends StatelessWidget {
                           children: <Widget>[
                             categoryButton(
                               image: 'images/nail.jpg',
-                              title: 'Nail',
+                              title: 'Nails',
                             ), //Nutrition/ Dietitian
                             categoryButton(
                               image: 'images/nutrition.jpg',
-                              title: 'Nutritionist',
+                              title: 'Nutrition',
                             ), //Nail art
                           ],
                         ), //Nutrition/ Dietitian,Nail art
