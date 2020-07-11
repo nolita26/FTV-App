@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class IntroModel {
   String imageAssetPath;
   String title;

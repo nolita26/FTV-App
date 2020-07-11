@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/pages/coursepage.dart';
 import 'package:ftvapp/pages/dashboard.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
@@ -51,7 +52,7 @@ class DetailScreen extends StatelessWidget {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => CoursePage()));
                       },
                       child: Icon(
                         Icons.keyboard_arrow_left,

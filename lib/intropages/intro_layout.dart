@@ -3,7 +3,6 @@ import 'package:ftvapp/pages/dashboard.dart';
 import 'package:ftvapp/pages/login.dart';
 import 'package:ftvapp/intropages/intro_data.dart';
 import 'package:flutter/material.dart';
-import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
 class IntroLayout extends StatefulWidget {

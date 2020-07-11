@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
 import 'package:ftvapp/pages/coursepage.dart';
-import 'package:ftvapp/pages/detailscreen.dart';
+import 'package:ftvapp/contents/detailscreen.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
 
 class HomePage extends StatelessWidget {
@@ -193,8 +193,8 @@ class HomePage extends StatelessWidget {
                   backWidget:
                   _decorationContainerA(LightColor.lightYellow, 50, -30),
                   chipColor: LightColor.yellow,
-                  chipText1: "Find the right degree for you",
-                  chipText2: "8 Cources",
+                  chipText1: "Nutritional Learning & foundation",
+                  chipText2: "10 Cources",
                   isPrimaryCard: true,
                   imgPath:
                   "https://jshopping.in/images/detailed/591/ibboll-Fashion-Mens-Optical-Glasses-Frames-Classic-Square-Wrap-Frame-Luxury-Brand-Men-Clear-Eyeglasses-Frame.jpg",
@@ -208,8 +208,8 @@ class HomePage extends StatelessWidget {
                   primary: LightColor.purple,
                   chipColor: LightColor.extraDarkPurple,
                   backWidget: _decorationContainerB(LightColor.purple, 90, -40),
-                  chipText1: "Become a data scientist",
-                  chipText2: "8 Cources",
+                  chipText1: "Become a beauty expert",
+                  chipText2: "7 Cources",
                   imgPath:
                   "https://hips.hearstapps.com/esquireuk.cdnds.net/16/39/980x980/square-1475143834-david-gandy.jpg?resize=480:*",
               ),
@@ -222,8 +222,8 @@ class HomePage extends StatelessWidget {
                   primary: LightColor.lightYellow,
                   chipColor: LightColor.darkYellow,
                   backWidget: _decorationContainerC(LightColor.yellow, 50, -30),
-                  chipText1: "Become a digital marketer",
-                  chipText2: "8 Cources",
+                  chipText1: "Become a Hairstylist",
+                  chipText2: "5 Cources",
                   imgPath:
                   "https://www.visafranchise.com/wp-content/uploads/2019/05/patrick-findaro-visa-franchise-square.jpg",
               ),
@@ -238,7 +238,7 @@ class HomePage extends StatelessWidget {
                   backWidget: _decorationContainerD(LightColor.purple, -50, 30,
                       secondary: LightColor.lightpurple,
                       secondaryAccent: LightColor.darkpurple),
-                  chipText1: "Become a machine learner",
+                  chipText1: "Become a Fashionista",
                   chipText2: "8 Cources",
                   imgPath:
                   "https://d1mo3tzxttab3n.cloudfront.net/static/img/shop/560x580/vint0080.jpg",
@@ -270,8 +270,8 @@ class HomePage extends StatelessWidget {
                     LightColor.lightYellow, -100, -65,
                     secondary: LightColor.yellow,
                     secondaryAccent: LightColor.darkYellow),
-                chipText1: "English for career development ",
-                chipText2: "8 Cources",
+                chipText1: "Introduction to Beauty care",
+//                chipText2: "4 Cources",
                 isPrimaryCard: true,
                 imgPath:
                 "https://www.reiss.com/media/product/946/218/silk-paisley-printed-pocket-square-mens-morocco-in-pink-red-20.jpg?format=jpeg&auto=webp&quality=85&width=1200&height=1200&fit=bounds",
@@ -290,8 +290,8 @@ class HomePage extends StatelessWidget {
                     -20,
                     secondary: LightColor.darkpurple,
                   ),
-                  chipText1: "Bussiness foundation",
-                  chipText2: "8 Cources",
+                  chipText1: "Skin care as a foundation",
+//                  chipText2: "8 Cources",
                   imgPath:
                   "https://i.dailymail.co.uk/i/pix/2016/08/05/19/36E9139400000578-3725856-image-a-58_1470422921868.jpg",
               ),
@@ -305,8 +305,8 @@ class HomePage extends StatelessWidget {
                   chipColor: LightColor.darkYellow,
                   backWidget: _decorationContainerF(
                       LightColor.darkYellow, LightColor.darkYellow, 50, -30),
-                  chipText1: "Excel skill for business",
-                  chipText2: "8 Cources",
+                  chipText1: "Steps to acheive clear skin",
+//                  chipText2: "6 Cources",
                   imgPath:
                   "https://www.reiss.com/media/product/945/066/03-2.jpg?format=jpeg&auto=webp&quality=85&width=632&height=725&fit=bounds",
               ),
@@ -323,8 +323,8 @@ class HomePage extends StatelessWidget {
                   -50,
                   30,
                 ),
-                chipText1: "Beacame a data analyst",
-                chipText2: "8 Cources",
+                chipText1: "Become a Beauty expert",
+//                chipText2: "8 Cources",
                 imgPath:
                 "https://img.alicdn.com/imgextra/i4/52031722/O1CN0165X68s1OaiaYCEX6U_!!52031722.jpg",
               ),
@@ -374,7 +374,7 @@ class HomePage extends StatelessWidget {
                   bottom: 10,
                   left: 10,
                   child: _cardInfo(chipText1, chipText2,
-                      LightColor.titleTextColor, chipColor,
+                      Colors.white, chipColor,
                       isPrimaryCard: isPrimaryCard),
                 ),
               ],
@@ -624,7 +624,7 @@ class HomePage extends StatelessWidget {
                   _categoryRow("Featured", LightColor.purple, LightColor.purple),
                   _featuredRowA(context),
                   SizedBox(height: 0),
-                  _categoryRow("Top Courses on BLABLA", LightColor.purple, LightColor.darkpurple),
+                  _categoryRow("Top Courses on Beauty", LightColor.purple, LightColor.darkpurple),
                   _featuredRowB(context),
                 ],
               ),

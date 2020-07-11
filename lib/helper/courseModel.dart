@@ -41,5 +41,13 @@ class CourseList {
         noOfCource: "10 courses",
         tag1: "Data Data",
         tag2: "Apache Spark"),
+    CourseModel(
+        name: "Data Science",
+        description:
+        "Launch your career in data science. A sweet-cource introduction to data science, develop and taught by leading professors.",
+        university: "Jons Hopkins University",
+        noOfCource: "17 courses",
+        tag1: "Data science",
+        tag2: "Machine Learning"),
   ];
 }

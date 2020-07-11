@@ -59,10 +59,7 @@ class _VideoPlayState extends State<VideoPlay> {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => DetailScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen()));
                           },
                           child: Icon(
                             Icons.arrow_back_ios,

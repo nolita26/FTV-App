@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
+import 'package:ftvapp/contents/beauty.dart';
+import 'package:ftvapp/contents/fashion.dart';
 
 class Search extends StatelessWidget {
-  Search({Key key}) : super(key: key);
+//  Search({Key key}) : super(key: key);
 
   double width;
 
@@ -91,7 +93,7 @@ class Search extends StatelessWidget {
   }
 
 
-  Widget _categoryList() {
+  Widget _categoryList(BuildContext context) {
     return Container(
       // margin: EdgeInsets.symmetric(horizontal: 20),
       height: 90,
@@ -99,19 +101,6 @@ class Search extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-//          Padding(
-//            padding: EdgeInsets.symmetric(horizontal: 20),
-//            child:
-//            Text(
-//              title,
-//              style: TextStyle(
-//                  color: LightColor.extraDarkPurple,
-//                  fontWeight: FontWeight.bold),
-//            ),
-//          ),
-//          SizedBox(
-//            height: 10,
-//          ),
           Container(
               width: width,
               height: 40,
@@ -119,11 +108,27 @@ class Search extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  _chip("Beauty", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Beauty()));
+                    },
+                      child: _chip(
+                          "Beauty",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Nutrionist", LightColor.darkgrey, height: 5),
                   SizedBox(width: 10),
-                  _chip("Fashion", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Fashion()));
+                    },
+                      child: _chip(
+                          "Fashion",
+                          LightColor.darkgrey,
+                          height: 5),
+                  ),
                   SizedBox(width: 10),
                   _chip("Ayurveda", LightColor.darkgrey, height: 5),
                 ],
@@ -247,7 +252,7 @@ class Search extends StatelessWidget {
                   SizedBox(height: 20),
                   _categoryRow("Top Searches", LightColor.purple, LightColor.darkpurple),
                   SizedBox(height: 30),
-                  _categoryList(),
+                  _categoryList(context),
                   SizedBox(height: 30),
                   _categoryRow("Categories", LightColor.purple, LightColor.darkpurple),
                   Container(
