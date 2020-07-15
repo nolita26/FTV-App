@@ -20,9 +20,7 @@ class Search extends StatelessWidget {
       child: Container(
         height: 120,
         width: width,
-        decoration: BoxDecoration(
-          color: LightColor.purple,
-        ),
+        decoration: BoxDecoration(color: LightColor.purple),
         child: Stack(
           fit: StackFit.expand,
           alignment: Alignment.center,
@@ -43,8 +41,7 @@ class Search extends StatelessWidget {
             Positioned(
               top: 40,
               left: 0,
-              child:
-              Container(
+              child: Container(
                 width: width,
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -55,31 +52,15 @@ class Search extends StatelessWidget {
                       decoration: BoxDecoration(),
                       child: TextFormField(
                         cursorColor: Colors.white54,
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
+                        style: TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.search,
-                            color: Colors.white54,
-                          ),
+                          icon: Icon(Icons.search, color: Colors.white54),
                           border: InputBorder.none,
                           hintText: "Example Hair Courses etc",
-                          hintStyle: TextStyle(
-                            color: Colors.white54,
-                            fontSize: 28,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+                          hintStyle: TextStyle(color: Colors.white54, fontSize: 20),
+                        )))],
+                )))],
+        )));
   }
 
 
@@ -89,17 +70,14 @@ class Search extends StatelessWidget {
       height: height,
       width: height,
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
+        shape: BoxShape.circle, color: color,
         border: Border.all(color: borderColor, width: borderWidth),
-      ),
-    );
+      ));
   }
 
 
   Widget _categoryList(BuildContext context) {
     return Container(
-      // margin: EdgeInsets.symmetric(horizontal: 20),
       height: 90,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,35 +94,22 @@ class Search extends StatelessWidget {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => Beauty()));
                     },
-                      child: _chip(
-                          "Beauty",
-                          LightColor.darkgrey,
-                          height: 5),
-                  ),
+                      child: _chip("Beauty", LightColor.darkgrey, height: 3)),
                   SizedBox(width: 10),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => Nutrition()));
                     },
-                      child: _chip(
-                          "Nutrition",
-                          LightColor.darkgrey,
-                          height: 5),
-                  ),
+                      child: _chip("Nutrition", LightColor.darkgrey, height: 3)),
                   SizedBox(width: 10),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => Fashion()));
                     },
-                      child: _chip(
-                          "Fashion",
-                          LightColor.darkgrey,
-                          height: 5),
-                  ),
+                      child: _chip("Fashion", LightColor.darkgrey, height: 3)),
                   SizedBox(width: 10),
-                  _chip("Ayurveda", LightColor.darkgrey, height: 5),
-                ],
-              )),
+                  _chip("Ayurveda", LightColor.darkgrey, height: 3),
+                ])),
           SizedBox(height: 10),
           Container(
               width: width,
@@ -157,41 +122,33 @@ class Search extends StatelessWidget {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => Therapy()));
                     },
-                      child: _chip(
-                          "Therapy",
-                          LightColor.darkgrey,
-                          height: 5),
-                  ),
+                      child: _chip("Therapy", LightColor.darkgrey, height: 3)),
                   SizedBox(width: 10),
                   GestureDetector(
-                    onTap: () {
+                      onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => Nail()));
                     },
-                      child: _chip(
-                          "Nails",
-                          LightColor.darkgrey,
-                          height: 5),
-                  ),
+                      child: _chip("Nails", LightColor.darkgrey, height: 3)),
                   SizedBox(width: 10),
-                  _chip("Makeup", LightColor.darkgrey, height: 5),
+                  GestureDetector(
+                      onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Nail()));
+                    },
+                      child: _chip("Makeup", LightColor.darkgrey, height: 3)),
                   SizedBox(width: 10),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => Hair()));
                     },
-                      child: _chip(
-                          "Hairstyle",
-                          LightColor.darkgrey,
-                          height: 5),
-                  ),
+                      child: _chip("Hairstyle", LightColor.darkgrey, height: 3)),
                   SizedBox(width: 10),
-                  _chip("Spa", LightColor.darkgrey, height: 5),
-                ],
-              ),
-          ),
-        ],
-      ),
-    );
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => Nail()));
+                      },
+                      child: _chip("Spa", LightColor.darkgrey, height: 3)),
+                ])),
+        ]));
   }
 
 
@@ -208,14 +165,11 @@ class Search extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: TextStyle(
-                color: LightColor.darkgrey, fontSize: 26, fontWeight: FontWeight.bold),
-          ),
-//          _chip("See all", primary)
-        ],
-      ),
-    );
+            style: TextStyle(color: LightColor.darkgrey, fontSize: 22, fontWeight: FontWeight.bold),
+          )],
+      ));
   }
+
 
   Widget _chip(String text, Color textColor,
       {double height = 0, bool isPrimaryCard = false}) {
@@ -224,15 +178,13 @@ class Search extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: height),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15)),
-        color: textColor.withAlpha(isPrimaryCard ? 200 : 50),
-      ),
+        color: textColor.withAlpha(isPrimaryCard ? 200 : 50)),
       child: Text(
         text,
-        style: TextStyle(
-            color: isPrimaryCard ? Colors.white : textColor, fontSize: 16),
-      ),
-    );
+        style: TextStyle(color: isPrimaryCard ? Colors.white : textColor, fontSize: 15),
+      ));
   }
+
 
     categoryButton({image, title}) {
       return FlatButton(
@@ -245,8 +197,7 @@ class Search extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  )),
+                  fit: BoxFit.cover)),
                   child: Container(
                     padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -255,24 +206,13 @@ class Search extends StatelessWidget {
                           colors: [
                             Colors.black.withOpacity(.8),
                             Colors.black.withOpacity(.0),
-                          ],
-                        ),
-                      ),
+                          ])),
                       child: Align(
                         alignment: Alignment.bottomLeft,
                         child: Text(
                           title,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                  ),
-                ),
-  //onPressed: ()=> _loadCategoryScreen(context, "$category"),
-          );
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+                        )))));
       }
 
   @override
@@ -287,72 +227,39 @@ class Search extends StatelessWidget {
                   _header(context),
                   SizedBox(height: 20),
                   _categoryRow("Top Searches", LightColor.purple, LightColor.darkpurple),
-                  SizedBox(height: 30),
+                  SizedBox(height: 15),
                   _categoryList(context),
                   SizedBox(height: 30),
                   _categoryRow("Categories", LightColor.purple, LightColor.darkpurple),
                   Container(
-                    padding: EdgeInsets.only(left: 20, top: 10),
+                    padding: EdgeInsets.only(left: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            categoryButton(
-                              image: 'images/artistry.jpg',
-                              title: 'Makeup',
-                            ), //Makeup
-                            categoryButton(
-                              image: 'images/Hair1.jpg',
-                              title: 'Hairstyle',
-                            ), //Skin care
-                          ],
-                        ), //Makeup, Skin Care
+                            categoryButton(image: 'images/artistry.jpg', title: 'Makeup'),
+                            categoryButton(image: 'images/Hair1.jpg', title: 'Hairstyle'),
+                          ]), //Makeup, Skin Care
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            categoryButton(
-                              image: 'images/nail.jpg',
-                              title: 'Nails',
-                            ), //Nutrition/ Dietitian
-                            categoryButton(
-                              image: 'images/nutrition.jpg',
-                              title: 'Nutrition',
-                            ), //Nail art
-                          ],
-                        ), //Nutrition/ Dietitian,Nail art
+                            categoryButton(image: 'images/nail.jpg', title: 'Nails'),
+                            categoryButton(image: 'images/nutrition.jpg', title: 'Nutrition'),
+                          ]),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            categoryButton(
-                              image: 'images/ayurveda.jpg',
-                              title: 'Ayurveda',
-                            ), // Hair
-                            categoryButton(
-                                image: 'images/therapy.jpg',
-                                title: 'Therapy'
-                            ), // Spa
-                          ],
-                        ), //Hair courses,Spa therapist
+                            categoryButton(image: 'images/ayurveda.jpg', title: 'Ayurveda'),
+                            categoryButton(image: 'images/therapy.jpg', title: 'Therapy'),
+                          ]),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            categoryButton(
-                              image: 'images/beauty.jpg',
-                              title: 'Beauty',
-                            ), // Hair
-                            categoryButton(
-                                image: 'images/model5.jpg',
-                                title: 'Fashion'
-                            ), // Spa
-                          ],
-                        ), //Ha
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            )));
-  }
-}
+                            categoryButton(image: 'images/beauty.jpg', title: 'Beauty'),
+                            categoryButton(image: 'images/model5.jpg', title: 'Fashion'),
+                          ]),
+                      ])),
+                ]))));
+  }}

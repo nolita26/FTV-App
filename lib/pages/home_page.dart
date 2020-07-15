@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/contents/Hair.dart';
 import 'package:ftvapp/contents/beauty.dart';
+import 'package:ftvapp/contents/cart.dart';
 import 'package:ftvapp/contents/fashion.dart';
 import 'package:ftvapp/contents/nail.dart';
 import 'package:ftvapp/contents/nutritionist.dart';
@@ -44,7 +45,7 @@ class HomePage extends StatelessWidget {
                   child: _circularContainer(width * .7, Colors.transparent,
                       borderColor: Colors.white38)),
               Positioned(
-                  top: 30,
+                  top: 0,
                   left: 0,
                   child: Container(
                       width: width,
@@ -52,31 +53,42 @@ class HomePage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-//                          Icon(
-//                            Icons.keyboard_arrow_left,
-//                            color: Colors.white,
-//                            size: 40,
-//                          ),
-                          SizedBox(height: 40),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Learn and Explore!",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w500),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 340, top: 30),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => Cart()));
+                              },
+                              child: Icon(
+                                Icons.shopping_cart,
+                                color: Colors.white,
+                                size: 32,
                               ),
-                              SizedBox(height: 5),
-                              Text(
-                                "Find new courses you may want to learn",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ],
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(33, 0, 33, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  "Learn and Explore!",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 27,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  "Find new courses you may want to learn",
+                                  style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
                           ),
                           SizedBox(height: 20),
                         ],

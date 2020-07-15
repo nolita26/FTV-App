@@ -1,11 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ftvapp/pages/dashboard.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/login.dart';
+import 'package:ftvapp/pages/register.dart';
 import 'package:ftvapp/services/auth.dart';
-
-import 'dashboard.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -18,68 +19,77 @@ class _RegisterState extends State<Register> {
   bool isLoading = false;
 
   AuthService _authService = AuthService();
-  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
 
-
-  @override
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(width: 750, height: 1334, allowFontScaling: true);
     return Scaffold(
       resizeToAvoidBottomPadding: true,
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage("images/reg_back.png"),
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage("images/reg_back.png"),
+            ),
           ),
-        ),
-        child: Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20, top: 30, right: 20),
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        top: 20,
-                        left: 10,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Dashboard(),
-                                    fullscreenDialog: true));
-                          },
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.black,
+          child: Stack(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20, top: 30, right: 20),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          top: 20,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Dashboard(),
+                                      fullscreenDialog: true));
+                            },
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Center(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RegisterForm(),
-                          ],
+                        Positioned(
+                          top: 20,
+                          left: 130,
+                          child: Text("Register",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontFamily: "Poppins-Bold",
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: .6)),
                         ),
-                      ),
-                    ],
+                        Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RegisterForm(),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -93,24 +103,15 @@ class _RegisterState extends State<Register> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
+            padding: EdgeInsets.only(left: 16.0, right: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("Register",
-                    style: TextStyle(
-                        fontSize: ScreenUtil().setSp(45),
-                        fontFamily: "Poppins-Bold",
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: .6)),
-                SizedBox(
-                  height: ScreenUtil().setHeight(75),
-                ),
                 Text("Username",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "Poppins-Medium",
-                        fontSize: ScreenUtil().setSp(30))),
+                        fontSize: 18)),
                 TextField(
                   decoration: InputDecoration(
                       hintText: "Username",
@@ -118,13 +119,13 @@ class _RegisterState extends State<Register> {
                       TextStyle(color: Colors.black, fontSize: 15.0)),
                 ),
                 SizedBox(
-                  height: ScreenUtil().setHeight(30),
+                  height: 30,
                 ),
                 Text("Password",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "Poppins-Medium",
-                        fontSize: ScreenUtil().setSp(30))),
+                        fontSize: 18)),
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -144,7 +145,7 @@ class _RegisterState extends State<Register> {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Sign Up',
+                        'Register',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 19,
@@ -158,9 +159,6 @@ class _RegisterState extends State<Register> {
                       textColor: Colors.black,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: ScreenUtil().setHeight(35),
                 ),
               ],
             ),
@@ -198,7 +196,7 @@ class _RegisterState extends State<Register> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Have an account?',
+                'Already have an account?',
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   color: Colors.black,
@@ -251,7 +249,7 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
-                'Sign up with Google',
+                'Register with Google',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.black,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/contents/account.dart';
+import 'package:ftvapp/contents/cart.dart';
 import 'package:ftvapp/pages/wishlist.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/login.dart';
@@ -18,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
   final RecommendedPage _recommendedPage = RecommendedPage();
   final Search _search = Search();
   final Wishlist _wishlist = Wishlist();
-  final Login _login = Login();
+  final Account _account = Account();
 
   Widget _showPage = new HomePage();
 
@@ -37,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
         return _wishlist;
         break;
       case 4:
-        return _login;
+        return _account;
         break;
       default:
         return new Container(
@@ -79,7 +81,7 @@ class _DashboardState extends State<Dashboard> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              title: Text('SignIn'),
+              title: Text('Account'),
             )
           ],
           onTap: (int tappedIndex) {
