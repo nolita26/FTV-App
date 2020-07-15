@@ -49,8 +49,8 @@ class _VideoPlayState extends State<VideoPlay> {
                   child: _circularContainer(width * .7, Colors.transparent,
                       borderColor: Colors.white38)),
               Positioned(
-                  top: 50,
-                  left: 0,
+                  top: 40,
+                  left: 10,
                   child: Container(
                     width: width,
                     padding: EdgeInsets.symmetric(horizontal: 20),
@@ -63,6 +63,7 @@ class _VideoPlayState extends State<VideoPlay> {
                           },
                           child: Icon(
                             Icons.arrow_back_ios,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -108,7 +109,7 @@ class _VideoPlayState extends State<VideoPlay> {
               children: <Widget>[
                 _header(context),
                 Container(
-                  height: 260,
+                  height: 220,
                   child: ListView(
                     children: <Widget>[
                       ChewieListItem(
@@ -143,15 +144,13 @@ class _VideoPlayState extends State<VideoPlay> {
                       Text(
                         "Instructor Name",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20),
                 Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Row(
@@ -292,13 +291,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.more_horiz,
-                                size: 25,
+                                size: 23,
                               ),
                               VerticalDivider(),
                               Text(
                                 "About The Course",
                                 style: TextStyle(
-                                     fontSize: 20),
+                                     fontSize: 18),
                               )
                             ],
                           ),
@@ -311,7 +310,7 @@ class _VideoPlayState extends State<VideoPlay> {
                             child: Text(
                               "This course is a one-stop-shop for everything you'll need to know to get started with business foundation, along with a few incentives. We'll begin with the basics of business development, learning about marketing, finance and getting to know about public relations. ",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                               ),
                             ),
                           ),
@@ -335,13 +334,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.person,
-                                size: 25,
+                                size: 23,
                               ),
                               VerticalDivider(),
                               Text(
                                 "About The Instructor",
                                 style: TextStyle(
-                                    fontSize: 20),
+                                    fontSize: 18),
                               )
                             ],
                           ),
@@ -354,7 +353,7 @@ class _VideoPlayState extends State<VideoPlay> {
                             child: Text(
                               "This course is a one-stop-shop for everything you'll need to know to get started with business foundation, along with a few incentives. We'll begin with the basics of business development, learning about marketing, finance and getting to know about public relations.",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                               ),
                             ),
                           ),
@@ -368,13 +367,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.share,
-                                size: 25,
+                                size: 23,
                               ),
                               VerticalDivider(),
                               Text(
                                 "Share This Course",
                                 style: TextStyle(
-                                    fontSize: 20),
+                                    fontSize: 18),
                               )
                             ],
                           ),
@@ -393,13 +392,13 @@ class _VideoPlayState extends State<VideoPlay> {
                             children: <Widget>[
                               Icon(
                                 Icons.notifications,
-                                size: 25,
+                                size: 23,
                               ),
                               VerticalDivider(),
                               Text(
                                 "Announcements",
                                 style: TextStyle(
-                                    fontSize: 20),
+                                    fontSize: 18),
                               )
                             ],
                           ),
