@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/contents/account.dart';
-import 'package:ftvapp/contents/cart.dart';
 import 'package:ftvapp/pages/wishlist.dart';
 import 'package:ftvapp/pages/home_page.dart';
-import 'package:ftvapp/pages/login.dart';
 import 'package:ftvapp/pages/recomended_page.dart';
 import 'package:ftvapp/pages/search.dart';
 import 'package:ftvapp/theme/color/light_color.dart';

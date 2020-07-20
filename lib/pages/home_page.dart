@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ftvapp/contents/Hair.dart';
 import 'package:ftvapp/contents/beauty.dart';
-import 'package:ftvapp/contents/cart.dart';
 import 'package:ftvapp/contents/fashion.dart';
 import 'package:ftvapp/contents/nail.dart';
 import 'package:ftvapp/contents/nutritionist.dart';
 import 'package:ftvapp/contents/therapy.dart';
 import 'package:ftvapp/helper/quad_clipper.dart';
+import 'package:ftvapp/pages/cart_screen.dart';
 import 'package:ftvapp/pages/coursepage.dart';
 import 'package:ftvapp/contents/detailscreen.dart';
 import 'package:ftvapp/theme/color/light_color.dart';
@@ -49,45 +49,45 @@ class HomePage extends StatelessWidget {
                   left: 0,
                   child: Container(
                       width: width,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.only(left: 340, top: 30),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (_) => Cart()));
+                            padding: const EdgeInsets.only(right: 10, top: 30),
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => CartScreen()));
                               },
-                              child: Icon(
+                              icon: Icon(
                                 Icons.shopping_cart,
                                 color: Colors.white,
                                 size: 32,
                               ),
                             ),
                           ),
-                          SizedBox(height: 10),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(33, 0, 33, 0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  "Learn and Explore!",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 27,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                SizedBox(height: 5),
-                                Text(
-                                  "Find new courses you may want to learn",
-                                  style: TextStyle(
-                                      color: Colors.white70,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    "Learn and Explore!",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 27,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Text(
+                                    "Find new courses you may want to learn",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(height: 20),

@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ftvapp/pages/dashboard.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/login.dart';
-import 'package:ftvapp/pages/register.dart';
 import 'package:ftvapp/services/auth.dart';
 
 class Register extends StatefulWidget {
