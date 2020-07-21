@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ftvapp/pages/cart_screen.dart';
 import 'package:ftvapp/pages/coursepage.dart';
 //import 'package:ftvapp/pages/dashboard.dart';
 //import 'package:ftvapp/pages/home_page.dart';
@@ -164,25 +165,28 @@ class DetailScreen extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: TextStyle(letterSpacing: 2, color: Colors.white, fontSize: 22)),
                               ))),
-                    )
-                  ),
+                    )),
                   SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10.0, right:10.0),
-                    child: Center(
-                      child: Container(
-                          height: 40,
-                          width: 200,
-                          decoration: BoxDecoration(color: LightColor.lightpurple,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Add to cart',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(letterSpacing: 2, color: Colors.white, fontSize: 22),
-                              ))),
-                    )),
+                      padding: const EdgeInsets.only(left: 10.0, right:10.0),
+                      child: Center(
+                        child: Container(
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(color: LightColor.lightpurple,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: GestureDetector(
+                                  onTap: () {
+//                                    Navigator.push(context, MaterialPageRoute(builder: (_) => CartScreen()));
+                                  },
+                                  child: Text(
+                                      'Add to Cart',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(letterSpacing: 2, color: Colors.white, fontSize: 22)),
+                                ))),
+                      )),
                   SizedBox(height: 30),
                   Divider(height: 10, thickness: 0.5, color: Colors.grey[900], indent: 15, endIndent: 20),
                   SizedBox(height: 10),
