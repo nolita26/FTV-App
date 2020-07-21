@@ -11,6 +11,7 @@ class Account extends StatefulWidget {
 }
 
 class _AccountState extends State<Account> {
+  bool condition = true;
   double width;
   Widget _header(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -128,6 +129,7 @@ class _AccountState extends State<Account> {
                             fontWeight: FontWeight.w400,
                           ),
                           ),
+                          SizedBox(height: 10),
                         ],
                       ),
                       ExpansionTile(
@@ -157,6 +159,7 @@ class _AccountState extends State<Account> {
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 10),
                             ],
                           ),
                           ExpansionTile(
@@ -177,6 +180,7 @@ class _AccountState extends State<Account> {
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 10),
                             ],
                           ),
                           ExpansionTile(
@@ -197,6 +201,7 @@ class _AccountState extends State<Account> {
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 10),
                             ],
                           ),
                         ],
@@ -218,51 +223,53 @@ class _AccountState extends State<Account> {
                 ),
               ),
               Center(
-                child: Container(
-                  width: 90,
-                  height: 40,
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => Login()));
-                    },
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                child: condition == true ?
+                Center(
+                  child: Container(
+                    width: 90,
+                    height: 40,
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => Login()));
+                      },
+                      child: Text(
+                        'Logout',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                      ),
+                      color: LightColor.darkgrey,
+                      splashColor: Colors.white,
+                      textColor: Colors.white,
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0),
-                    ),
-                    color: LightColor.darkgrey,
-                    splashColor: Colors.white,
-                    textColor: Colors.white,
                   ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: Container(
-                  width: 110,
-                  height: 40,
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => Register()));
-                    },
-                    child: Text(
-                      'Register',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                ) :
+                Center(
+                  child: Container(
+                    width: 90,
+                    height: 40,
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => Login()));
+                      },
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                      ),
+                      color: LightColor.darkgrey,
+                      splashColor: Colors.white,
+                      textColor: Colors.white,
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0),
-                    ),
-                    color: LightColor.darkgrey,
-                    splashColor: Colors.white,
-                    textColor: Colors.white,
                   ),
                 ),
               ),
