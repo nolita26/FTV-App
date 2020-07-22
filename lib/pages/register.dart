@@ -1,10 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:ftvapp/pages/dashboard.dart';
 import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/login.dart';
 import 'package:ftvapp/services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ftvapp/services/sign_in.dart';
+import 'package:ftvapp/services/user.dart';
+//import 'package:image_picker/image_picker.dart';
+import 'dashboard.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -17,77 +22,136 @@ class _RegisterState extends State<Register> {
   bool isLoading = false;
 
   AuthService _authService = AuthService();
+  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
 
+//  File image;
+
+  _openCamera() async{
+//    var picture = await ImagePicker.pickImage(source: ImageSource.camera);
+//    this.setState(() {
+//      image = picture as File;
+//    });
+  }
+
+  _openGallery() async{
+//    var picture = await ImagePicker.pickImage(source: ImageSource.gallery);
+//    this.setState(() {
+//      image = picture as File;
+//    });
+  }
+
+  Future<void> _showDialog(BuildContext context){
+    return showDialog(context: context, builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text("Make a Choice"),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              GestureDetector(
+                child: Text("Gallery"),
+                onTap: () {
+                  _openGallery();
+                },
+              ),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+              ),
+              GestureDetector(
+                child: Text("Camera"),
+                onTap: () {
+                  _openCamera();
+                },
+              ),
+            ],
+          ),
+        ),
+      );
+    });
+  }
+
+  /*void initState() {
+    // TODO: implement initState
+    _email=new TextEditingController();
+    _password=new TextEditingController();
+    super.initState();
+  }*/
+  String emailValidator(String value) {
+    Pattern pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(value)) {
+      return 'Email format is invalid';
+    } else {
+      return null;
+    }
+  }
+
+  String pwdValidator(String value) {
+    if (value.length < 8) {
+      return 'Password must be longer than 8 characters';
+    } else {
+      return null;
+    }
+  }
+  @override
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(width: 750, height: 1334, allowFontScaling: true);
     return Scaffold(
       resizeToAvoidBottomPadding: true,
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage("images/reg_back.png"),
-            ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage("images/reg_back.png"),
           ),
-          child: Stack(
-            children: <Widget>[
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: double.infinity,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 20, top: 30, right: 20),
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned(
-                          top: 20,
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Dashboard(),
-                                      fullscreenDialog: true));
-                            },
-                            child: Align(
-                              alignment: Alignment.topLeft,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.black,
-                              ),
+        ),
+        child: Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: double.infinity,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 20, top: 30, right: 20),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        top: 20,
+                        left: 10,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Dashboard(),
+                                    fullscreenDialog: true));
+                          },
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.black,
                             ),
                           ),
                         ),
-                        Positioned(
-                          top: 20,
-                          left: 130,
-                          child: Text("Register",
-                              style: TextStyle(
-                                  fontSize: 25,
-                                  fontFamily: "Poppins-Bold",
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: .6)),
+                      ),
+                      Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RegisterForm(),
+                          ],
                         ),
-                        Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              RegisterForm(),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -101,49 +165,161 @@ class _RegisterState extends State<Register> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(left: 16.0, right: 16.0),
+            padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("Username",
+                Center(
+                  child: Text("Register",
+                      style: TextStyle(
+                          fontSize: ScreenUtil().setSp(45),
+                          fontFamily: "Poppins-Bold",
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: .6)),
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(75),
+                ),
+                Text("E-mail",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "Poppins-Medium",
-                        fontSize: 18)),
-                TextField(
+                        fontSize: ScreenUtil().setSp(30))),
+                TextFormField(
+                  obscureText: true,
                   decoration: InputDecoration(
-                      hintText: "Username",
+                      hintText: "E-mail",
                       hintStyle:
                       TextStyle(color: Colors.black, fontSize: 15.0)),
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (item) {
+                    return item.contains("@") ? null : "Enter valid Email";
+                  },
+                  onChanged: (item) {
+                    setState(() {
+                      _email = item;
+                    });
+                  },
+                  //controller: _email,
+                  //keyboardType: TextInputType.emailAddress,
+                  //validator: emailValidator,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: ScreenUtil().setHeight(20),
                 ),
                 Text("Password",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "Poppins-Medium",
-                        fontSize: 18)),
-                TextField(
+                        fontSize: ScreenUtil().setSp(30))),
+                TextFormField(
                   obscureText: true,
                   decoration: InputDecoration(
                       hintText: "Password",
                       hintStyle:
                       TextStyle(color: Colors.black, fontSize: 15.0)),
+                  keyboardType: TextInputType.text,
+                  validator: (item) {
+                    return item.length > 7 ? null : "Password must be at least 8 characters";
+                  },
+                  onChanged: (item) {
+                    setState(() {
+                      _password = item;
+                    });
+                  },
+                  //controller: _password,
+                  //validator: pwdValidator,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
+                Text("Mobile No.",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Poppins-Medium",
+                        fontSize: ScreenUtil().setSp(30))),
+                TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      hintText: "Mobile No.",
+                      hintStyle:
+                      TextStyle(color: Colors.black, fontSize: 15.0)),
+//                  keyboardType: TextInputType.emailAddress,
+//                  validator: (item) {
+//                    return item.contains("@") ? null : "Enter valid Email";
+//                  },
+//                  onChanged: (item) {
+//                    setState(() {
+//                      _email = item;
+//                    });
+//                  },
+                  //controller: _email,
+                  //keyboardType: TextInputType.emailAddress,
+                  //validator: emailValidator,
+
+                ),
+                SizedBox(height: 15),
+                Text("Upload an image",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Poppins-Medium",
+                        fontSize: ScreenUtil().setSp(30))),
+                RaisedButton(
+                  color: Colors.white,
+                  onPressed: () {
+                    _showDialog(context);
+                  },
+                  child: Text("Select Image", style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  )),
+                ),
+//                TextFormField(
+//                  obscureText: true,
+//                  decoration: InputDecoration(
+//                      hintText: "",
+//                      hintStyle:
+//                      TextStyle(color: Colors.black, fontSize: 15.0)),
+//                  keyboardType: TextInputType.emailAddress,
+//                  validator: (item) {
+//                    return item.contains("@") ? null : "Enter valid Email";
+//                  },
+//                  onChanged: (item) {
+//                    setState(() {
+//                      _email = item;
+//                    });
+//                  },
+//                  //controller: _email,
+//                  //keyboardType: TextInputType.emailAddress,
+//                  //validator: emailValidator,
+//                ),
+                SizedBox(height: 15),
                 Center(
                   child: Container(
                     width: 200,
                     height: 40,
                     child: RaisedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        setState(() {
+                          isLoading = true;
+                        });
+                        FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password).then((user) {
+                          // sign up
+                          setState(() {
+                            isLoading = false;
+                          });
+                          Fluttertoast.showToast(msg: "Register Success");
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => HomePage()), (Route<dynamic> route) => false);
+                        }).catchError((onError) {
+                          setState(() {
+                            isLoading = false;
+                          });
+                          Fluttertoast.showToast(msg: "error " + onError.toString());
+                        });
+                        //Navigator.pop(context);
                       },
                       child: Text(
-                        'Register',
+                        'Sign Up',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 19,
@@ -158,10 +334,13 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(10),
+                ),
               ],
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 15),
           Row(children: <Widget>[
             Expanded(
                 child: Container(
@@ -187,14 +366,14 @@ class _RegisterState extends State<Register> {
                   ),
                 )),
           ]),
-          SizedBox(height: 25),
-          _signInButton(),
           SizedBox(height: 15),
+          _signInButton(),
+          SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Already have an account?',
+                'Have an account?',
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   color: Colors.black,
@@ -235,21 +414,31 @@ class _RegisterState extends State<Register> {
     return FlatButton(
       color: Colors.white,
       splashColor: Colors.grey,
-      onPressed: () {},
+      onPressed: () {
+        signInWithGoogle().whenComplete(() {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context){
+                return HomePage();
+              },
+            ),
+          );
+        });
+      },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage("images/google.png"), height: 35.0),
+            Image(image: AssetImage("images/google.png"), height: 30.0),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
-                'Register with Google',
+                'Sign up with Google',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   color: Colors.black,
                 ),
               ),
@@ -261,26 +450,25 @@ class _RegisterState extends State<Register> {
   }
 
   void login() {
-    if (_formkey.currentState.validate()) {
+    setState(() {
+      isLoading = true;
+    });
+    _authService.signInWithEmailAndPassword(_email, _password).then((user) {
+      // sign up
       setState(() {
-        isLoading = true;
+        isLoading = false;
       });
-      _authService.signInWithEmailAndPassword(_email, _password).then((user) {
-        // sign up
-        setState(() {
-          isLoading = false;
-        });
-        Fluttertoast.showToast(msg: "Login Success");
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (_) => HomePage()),
-                (Route<dynamic> route) => false);
-      }).catchError((onError) {
-        setState(() {
-          isLoading = false;
-        });
-        Fluttertoast.showToast(msg: "error " + onError.toString());
+      Fluttertoast.showToast(msg: "Login Success");
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => HomePage()),
+              (Route<dynamic> route) => false);
+    }).catchError((onError) {
+      setState(() {
+        isLoading = false;
       });
-    }
+      Fluttertoast.showToast(msg: "error " + onError.toString());
+    });
   }
 }
+
