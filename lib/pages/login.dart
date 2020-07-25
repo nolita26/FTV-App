@@ -1,13 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ftvapp/contents/forgetpass.dart';
 import 'package:ftvapp/pages/dashboard.dart';
-import 'package:ftvapp/pages/home_page.dart';
 import 'package:ftvapp/pages/register.dart';
 import 'package:ftvapp/services/auth.dart';
 import 'package:ftvapp/services/sign_in.dart';
-
+int a=0;
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -24,7 +25,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     ScreenUtil.init(width: 750, height: 1334, allowFontScaling: true);
     return Scaffold(
-      resizeToAvoidBottomPadding: true,
+//      resizeToAvoidBottomPadding: true,
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -86,6 +87,8 @@ class _LoginState extends State<Login> {
   // ignore: non_constant_identifier_names
   Center LoginForm() {
     return Center(
+      child: Form(
+        key:_formkey,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -154,19 +157,25 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins-Medium",
-                        fontSize: ScreenUtil().setSp(30),
-                      ),
-                    )
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => ForgetPass()));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        "Forgot Password?",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins-Medium",
+                          fontSize: ScreenUtil().setSp(30),
+                          decoration: TextDecoration.underline,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: ScreenUtil().setHeight(35),
@@ -265,6 +274,7 @@ class _LoginState extends State<Login> {
           ),
         ],
       ),
+      ),
     );
   }
 
@@ -273,11 +283,12 @@ class _LoginState extends State<Login> {
       color: Colors.white,
       splashColor: Colors.grey,
       onPressed: () {
+        a=1;
         signInWithGoogle().whenComplete(() {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context){
-                return HomePage();
+                return Dashboard();
               },
             ),
           );
@@ -308,25 +319,23 @@ class _LoginState extends State<Login> {
   }
 
   void login() {
-    setState(() {
-      isLoading = true;
-    });
-    _authService.signInWithEmailAndPassword(_email, _password).then((user) {
-      // sign up
+    if (_formkey.currentState.validate()) {
       setState(() {
-        isLoading = false;
+        isLoading = true;
       });
-      Fluttertoast.showToast(msg: "Login Success");
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => HomePage()),
-              (Route<dynamic> route) => false);
-    }).catchError((onError) {
-      setState(() {
-        isLoading = false;
+      FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password).then((user) {
+        // sign up
+        setState(() {
+          isLoading = false;
+        });
+        Fluttertoast.showToast(msg: "Login Success");
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => Dashboard()), (Route<dynamic> route) => false);
+      }).catchError((onError) {
+        setState(() {
+          isLoading = false;
+        });
+        Fluttertoast.showToast(msg: "error " + onError.toString());
       });
-      Fluttertoast.showToast(msg: "error " + onError.toString());
-    });
-
+    }
   }
 }
